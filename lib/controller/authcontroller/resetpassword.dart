@@ -3,15 +3,15 @@ import 'package:get/get.dart';
 import 'package:getx/core/constant/approutes.dart';
 
 abstract class ResetPasswordControllerVM extends GetxController {
-  resetPssword();
-
+  resetPassword();
+  toSuccess();
 }
 
 class ResetPasswordController extends ResetPasswordControllerVM {
   late TextEditingController password;
 
   @override
-  resetPssword() {}
+  resetPassword() {}
 
 
 
@@ -26,5 +26,10 @@ class ResetPasswordController extends ResetPasswordControllerVM {
     // TODO: implement dispose
     password.dispose();
     super.dispose();
+  }
+
+  @override
+  toSuccess() {
+    Get.offNamed(AppRoute.successresetpassword);
   }
 }

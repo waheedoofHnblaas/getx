@@ -24,9 +24,6 @@ class SignUpPage extends StatelessWidget {
           'Sign Up',
           style: Get.theme.textTheme.bodyText1!.copyWith(fontSize: 18),
         ),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: AppColors.back,
       ),
       body: Center(
           child: SingleChildScrollView(
@@ -38,8 +35,7 @@ class SignUpPage extends StatelessWidget {
               height: 5,
             ),
             AppLoginSubTitle(
-              subtitle:
-                  'Sign Up with your Details or\nBy social media',
+              subtitle: 'Sign Up with your Details or\nBy social media',
             ),
             const SizedBox(
               height: 33,
@@ -72,8 +68,14 @@ class SignUpPage extends StatelessWidget {
               inputType: TextInputType.visiblePassword,
               onChanged: (val) {},
             ),
-            SizedBox(height: 10,),
-            AppSignUpAndLoginButton(text: 'Sign Up',onPressed: (){}),
+            SizedBox(
+              height: 10,
+            ),
+            AppSignUpAndLoginButton(
+                text: 'Sign Up',
+                onPressed: () {
+                  controller.signup();
+                }),
             const SizedBox(
               height: 10,
             ),

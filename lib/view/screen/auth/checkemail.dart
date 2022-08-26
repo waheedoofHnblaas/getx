@@ -1,9 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/controller/authcontroller/resetpassword.dart';
-import 'package:getx/controller/authcontroller/verfiycodecontroller.dart';
+import 'package:getx/controller/authcontroller/checkemailcontroller.dart';
+import 'package:getx/controller/authcontroller/forgetcontroller.dart';
 import 'package:getx/core/constant/approutes.dart';
 import 'package:getx/core/constant/colors.dart';
 import 'package:getx/view/widget/auth/apploginbutton.dart';
@@ -12,22 +10,19 @@ import 'package:getx/view/widget/auth/apploginsubtitle.dart';
 import 'package:getx/view/widget/auth/applogintext.dart';
 import 'package:getx/view/widget/auth/apptextfield.dart';
 
-class ResetPasswordPage extends StatelessWidget {
-  const ResetPasswordPage({Key? key}) : super(key: key);
+class CheckEmailPage extends StatelessWidget {
+  const CheckEmailPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ResetPasswordController controller = Get.put(ResetPasswordController());
+    CheckEmailController controller = Get.put(CheckEmailController());
     return Scaffold(
       backgroundColor: AppColors.back,
       appBar: AppBar(
         title: Text(
-          'Reset password',
+          'Check Email',
           style: Get.theme.textTheme.bodyText1!.copyWith(fontSize: 18),
         ),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: AppColors.back,
       ),
       body: Center(
           child: SingleChildScrollView(
@@ -39,20 +34,26 @@ class ResetPasswordPage extends StatelessWidget {
                   height: 5,
                 ),
                 AppLoginSubTitle(
-                  subtitle: 'enter you new password',
+                  subtitle: 'enter your email and recieve password in your acount',
                 ),
                 const SizedBox(
                   height: 33,
                 ),
                 AppTextField(
-
-                  Controller: controller.resetPssword(),
-                  type: 'New Password',
-                  iconData: Icons.password_outlined,
-                  inputType: TextInputType.visiblePassword,
+                  Controller: controller.email,
+                  type: 'Email',
+                  iconData: Icons.email_outlined,
+                  inputType: TextInputType.emailAddress,
                   onChanged: (val) {},
                 ),
-
+                AppSignUpAndLoginButton(
+                    text: 'Check Email',
+                    onPressed: () {
+                      controller.toSuccessSignUp();
+                    }),
+                const SizedBox(
+                  height: 10,
+                ),
                 AppLoginSignUp(
                   textone: 'Don\'t have account ? ',
                   texttwo: 'Sign up',

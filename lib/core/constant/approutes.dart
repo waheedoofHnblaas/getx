@@ -5,4 +5,7 @@ class AppRoute{
  static String forget = '/forget';
  static String verfiy = '/verfiy';
  static String resetpassword = '/resetpassword';
+ static String successSignup = '/successSignup';
+ static String successresetpassword = '/successresetpassword';
+ static String checkemail = '/checkemail';
 }

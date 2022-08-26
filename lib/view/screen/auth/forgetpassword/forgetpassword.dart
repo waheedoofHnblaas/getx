@@ -22,9 +22,6 @@ class ForgetPasswordPage extends StatelessWidget {
           'Forget password',
           style: Get.theme.textTheme.bodyText1!.copyWith(fontSize: 18),
         ),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: AppColors.back,
       ),
       body: Center(
           child: SingleChildScrollView(
@@ -36,7 +33,7 @@ class ForgetPasswordPage extends StatelessWidget {
               height: 5,
             ),
             AppLoginSubTitle(
-              subtitle: 'enter you email and recieve password in your acount',
+              subtitle: 'enter your email and recieve password in your acount',
             ),
             const SizedBox(
               height: 33,

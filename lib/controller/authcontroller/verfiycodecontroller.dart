@@ -9,7 +9,7 @@ abstract class VerfiyCodeControllerVM extends GetxController {
 }
 
 class VerfiyCodeController extends VerfiyCodeControllerVM {
-  late TextEditingController email;
+  late TextEditingController code;
 
   @override
   checkCode() {}
@@ -21,14 +21,14 @@ class VerfiyCodeController extends VerfiyCodeControllerVM {
 
   @override
   void onInit() {
-    email = TextEditingController();
+    code = TextEditingController();
     super.onInit();
   }
 
   @override
   void dispose() {
     // TODO: implement dispose
-    email.dispose();
+    code.dispose();
     super.dispose();
   }
 }

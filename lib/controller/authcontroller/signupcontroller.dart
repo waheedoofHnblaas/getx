@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:getx/core/constant/approutes.dart';
 
 abstract class SignUpControllerVM extends GetxController {
-  login();
+  signup();
 
   toLogin();
 }
@@ -15,7 +15,10 @@ class SignUpController extends SignUpControllerVM {
   late TextEditingController password;
 
   @override
-  login() {}
+  signup() {
+    Get.toNamed(AppRoute.checkemail);
+
+  }
 
   @override
   toLogin() {
@@ -40,4 +43,6 @@ class SignUpController extends SignUpControllerVM {
     phone.dispose();
     super.dispose();
   }
+
+
 }

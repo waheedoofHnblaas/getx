@@ -23,24 +23,28 @@ class MyApp extends StatelessWidget {
     MyServices MyServicescontroller = Get.put(MyServices());
     MyLocalController localcontroller = Get.put(MyLocalController());
     return GetMaterialApp(
-      locale: localcontroller.language,
-      translations: MyTranslations(),
-      routes: routes,
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        textTheme: const TextTheme(
-            headline1: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Cairo',
-                fontSize: 24,
-                color: AppColors.black),
-            bodyText1: TextStyle(
-                height: 2, color: AppColors.gray, fontFamily: 'Cairo'),
-            subtitle1: TextStyle(
-                height: 2, color: AppColors.back, fontFamily: 'Cairo')),
-      ),
-      home: LanguagePage()
-    );
+        locale: localcontroller.language,
+        translations: MyTranslations(),
+        routes: routes,
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          appBarTheme: AppBarTheme(
+            centerTitle: true,
+            elevation: 0,
+            backgroundColor: AppColors.back,
+          ),
+          textTheme: const TextTheme(
+              headline1: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Cairo',
+                  fontSize: 24,
+                  color: AppColors.black),
+              bodyText1: TextStyle(
+                  height: 2, color: AppColors.gray, fontFamily: 'Cairo'),
+              subtitle1: TextStyle(
+                  height: 2, color: AppColors.back, fontFamily: 'Cairo')),
+        ),
+        home: LanguagePage());
   }
 }
