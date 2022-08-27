@@ -6,27 +6,32 @@ abstract class LoginControllerVM extends GetxController {
   login();
 
   toSignUp();
+
   toForget();
 }
 
 class LoginController extends LoginControllerVM {
-
-
-  late  TextEditingController email;
-  late  TextEditingController password;
+  late TextEditingController email;
+  late TextEditingController password;
+  late GlobalKey<FormState> formState = GlobalKey<FormState>();
 
   @override
   login() {
-
+    if (formState.currentState!.validate()) {
+      print('validate');
+    } else {
+      print('not validate');
+    }
   }
 
   @override
   toSignUp() {
-    Get.offNamed(AppRoute.signup);
+    Get.offAllNamed(AppRoute.signup);
   }
+
   @override
   toForget() {
-    Get.offNamed(AppRoute.forget);
+    Get.toNamed(AppRoute.forget);
   }
 
   @override
@@ -35,6 +40,7 @@ class LoginController extends LoginControllerVM {
     password = TextEditingController();
     super.onInit();
   }
+
   @override
   void dispose() {
     // TODO: implement dispose

@@ -9,20 +9,22 @@ class AppTextField extends StatelessWidget {
     required this.iconData,
     required this.inputType,
     required this.onChanged,
-    required this.Controller,
+    required this.controller,
+    required this.validator,
   }) : super(key: key);
 
   late String type;
-  late TextEditingController Controller;
+  late TextEditingController controller;
   late IconData iconData;
   late TextInputType inputType;
   late void Function(String)? onChanged;
-
+  late String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
       child: TextFormField(
+        validator: validator,
         keyboardType: inputType,
         style: const TextStyle(color: AppColors.primary),
         decoration: InputDecoration(

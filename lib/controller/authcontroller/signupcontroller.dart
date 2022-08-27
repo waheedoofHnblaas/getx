@@ -13,10 +13,17 @@ class SignUpController extends SignUpControllerVM {
   late TextEditingController phone;
   late TextEditingController username;
   late TextEditingController password;
+  late GlobalKey<FormState> formState = GlobalKey<FormState>();
 
   @override
   signup() {
-    Get.toNamed(AppRoute.checkemail);
+    if (formState.currentState!.validate()) {
+      print('validate');
+      Get.toNamed(AppRoute.verfiysignup);
+      Get.delete<SignUpController>();
+    } else {
+      print('not validate');
+    }
 
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/controller/authcontroller/forgetcontroller.dart';
-import 'package:getx/controller/authcontroller/verfiycodecontroller.dart';
+import 'package:getx/controller/authcontroller/forgetpasswordcontrollers/forgetcontroller.dart';
+import 'package:getx/controller/authcontroller/forgetpasswordcontrollers/verfiycodecontroller.dart';
 import 'package:getx/core/constant/approutes.dart';
 import 'package:getx/core/constant/colors.dart';
 import 'package:getx/view/widget/auth/apploginbutton.dart';
@@ -24,7 +24,6 @@ class VerificationPage extends StatelessWidget {
           'Verification code',
           style: Get.theme.textTheme.bodyText1!.copyWith(fontSize: 18),
         ),
-
       ),
       body: Center(
           child: SingleChildScrollView(
@@ -55,10 +54,14 @@ class VerificationPage extends StatelessWidget {
               showFieldAsBox: true,
               onCodeChanged: (String code) {},
               onSubmit: (String verificationCode) {
-                controller.toResetPassword();
+                controller.checkCode();
               }, // end onSubmit
             ),
-            AppSignUpAndLoginButton(text: 'Check Code', onPressed: () {}),
+            AppSignUpAndLoginButton(
+                text: 'Check Code',
+                onPressed: () {
+                  controller.checkCode();
+                }),
             const SizedBox(
               height: 10,
             ),

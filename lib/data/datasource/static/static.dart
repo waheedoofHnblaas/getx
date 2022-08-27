@@ -4,25 +4,17 @@ import 'package:getx/data/model/onboardingmodel.dart';
 
 List<OnBoardingModel> onBoardingList = [
   OnBoardingModel(
-      title: '1'.tr,
-      body: '2'.tr,
-      image: AppImagesAssets.onBoardingImageChoose),
+      title: '3', body: '4', image: AppImagesAssets.onBoardingImageChoose),
   OnBoardingModel(
-      title: 'Easy & Safe Payment',
-      body:
-          'Easy Checkout & Safe Payment\nmethod.'
-              ' Trusted by our Customers\nfrom all over the world.',
+      title: '5',
+      body: '6',
       image: AppImagesAssets.onBoardingImagePayment),
   OnBoardingModel(
-      title: 'Track Your Order',
-      body:
-          'Best Tracker has been Used For\nTrack your order.'
-              'You will know where\nyour product is at the moment',
+      title: '7',
+      body: '8',
       image: AppImagesAssets.onBoardingImageTrack),
   OnBoardingModel(
-      title: 'Fast Delivery',
-      body:
-          'Reliable And Fast Delivery .'
-              ' We\nDeliver your product the fastest\nway possible',
+      title: '9',
+      body: '10',
       image: AppImagesAssets.onBoardingImageFast),
 ];

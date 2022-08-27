@@ -4,7 +4,6 @@ import 'package:getx/controller/onboardingcontoller.dart';
 import 'package:getx/core/constant/colors.dart';
 import 'package:getx/data/datasource/static/static.dart';
 
-
 class OnBoardingPageView extends GetView<OnBoardingController> {
   const OnBoardingPageView({Key? key}) : super(key: key);
 
@@ -22,7 +21,7 @@ class OnBoardingPageView extends GetView<OnBoardingController> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              onBoardingList[index].title!,
+              onBoardingList[index].title!.tr,
               style: Get.theme.textTheme.headline1,
             ),
             Image.asset(
@@ -31,7 +30,7 @@ class OnBoardingPageView extends GetView<OnBoardingController> {
               height: 250,
               width: 220,
             ),
-            Text(onBoardingList[index].body!,
+            Text(onBoardingList[index].body!.tr,
                 style: Get.theme.textTheme.bodyText1,
                 textAlign: TextAlign.center),
           ],

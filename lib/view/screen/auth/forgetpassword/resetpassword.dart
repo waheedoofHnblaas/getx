@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/controller/authcontroller/resetpassword.dart';
-import 'package:getx/controller/authcontroller/verfiycodecontroller.dart';
+import 'package:getx/controller/authcontroller/forgetpasswordcontrollers/resetpassword.dart';
+import 'package:getx/controller/authcontroller/forgetpasswordcontrollers/verfiycodecontroller.dart';
 import 'package:getx/core/constant/approutes.dart';
 import 'package:getx/core/constant/colors.dart';
+import 'package:getx/core/function/validinput.dart';
 import 'package:getx/view/widget/auth/apploginbutton.dart';
 import 'package:getx/view/widget/auth/apploginsignup.dart';
 import 'package:getx/view/widget/auth/apploginsubtitle.dart';
@@ -26,39 +27,46 @@ class ResetPasswordPage extends StatelessWidget {
       ),
       body: Center(
           child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            AppLoginTitel(title: 'Welcom Back'),
-            const SizedBox(
-              height: 5,
-            ),
-            AppLoginSubTitle(
-              subtitle: 'enter you new password',
-            ),
-            const SizedBox(
-              height: 33,
-            ),
-            AppTextField(
-              Controller: controller.password,
-              type: 'New Password',
-              iconData: Icons.password_outlined,
-              inputType: TextInputType.visiblePassword,
-              onChanged: (val) {},
-            ),
-            AppSignUpAndLoginButton(
-                text: 'Reset',
+        child: Form(
+          key: controller.formState,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const AppLoginTitel(title: 'Welcome Back'),
+              const SizedBox(
+                height: 5,
+              ),
+              const AppLoginSubTitle(
+                subtitle: 'enter you new password',
+              ),
+              const SizedBox(
+                height: 33,
+              ),
+              AppTextField(
+                validator: (val){
+                  return validInput(val!, 8, 30, 'password');
+
+                },
+                controller: controller.password,
+                type: 'New Password',
+                iconData: Icons.password_outlined,
+                inputType: TextInputType.visiblePassword,
+                onChanged: (val) {},
+              ),
+              AppSignUpAndLoginButton(
+                  text: 'Reset',
+                  onPressed: () {
+                    controller.resetPassword();
+                  }),
+              AppLoginSignUp(
+                textone: 'Don\'t have account ? ',
+                texttwo: 'Sign up',
                 onPressed: () {
-                  controller.toSuccess();
-                }),
-            AppLoginSignUp(
-              textone: 'Don\'t have account ? ',
-              texttwo: 'Sign up',
-              onPressed: () {
-                Get.offNamed(AppRoute.signup);
-              },
-            )
-          ],
+                  Get.offNamed(AppRoute.signup);
+                },
+              )
+            ],
+          ),
         ),
       )),
     );

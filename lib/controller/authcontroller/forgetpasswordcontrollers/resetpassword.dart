@@ -4,14 +4,21 @@ import 'package:getx/core/constant/approutes.dart';
 
 abstract class ResetPasswordControllerVM extends GetxController {
   resetPassword();
-  toSuccess();
 }
 
 class ResetPasswordController extends ResetPasswordControllerVM {
   late TextEditingController password;
+  late GlobalKey<FormState> formState = GlobalKey<FormState>();
 
   @override
-  resetPassword() {}
+  resetPassword() {
+    if (formState.currentState!.validate()) {
+      print('validate');
+      Get.offNamed(AppRoute.successresetpassword);
+    } else {
+      print('not validate');
+    }
+  }
 
 
 
@@ -28,8 +35,5 @@ class ResetPasswordController extends ResetPasswordControllerVM {
     super.dispose();
   }
 
-  @override
-  toSuccess() {
-    Get.offNamed(AppRoute.successresetpassword);
-  }
+
 }

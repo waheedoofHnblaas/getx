@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/controller/authcontroller/checkemailcontroller.dart';
-import 'package:getx/controller/authcontroller/forgetcontroller.dart';
+import 'package:getx/controller/authcontroller/forgetpasswordcontrollers/forgetcontroller.dart';
 import 'package:getx/core/constant/approutes.dart';
 import 'package:getx/core/constant/colors.dart';
 import 'package:getx/view/widget/auth/apploginbutton.dart';
@@ -29,21 +28,26 @@ class SuccessResetPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const AppLoginTitel(title: 'Welcom Back'),
+            const Icon(
+              Icons.done,
+              color: Colors.greenAccent,
+              size: 100,
+            ),
+            const AppLoginTitel(title: 'Success Verification'),
             const SizedBox(
               height: 5,
             ),
             const AppLoginSubTitle(
               subtitle:
-                  'you reset new password to your acount\nnow enter and enjoy',
+                  'you reset new password to your account\nnow enter and login again',
             ),
             const SizedBox(
-              height: 33,
+              height: 60,
             ),
             AppSignUpAndLoginButton(
                 text: 'Enter',
                 onPressed: () {
-                  // controller.toSuccessSignUp();
+                  Get.offNamed(AppRoute.login);
                 }),
             const SizedBox(
               height: 10,

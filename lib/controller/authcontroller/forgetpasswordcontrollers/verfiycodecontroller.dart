@@ -5,19 +5,21 @@ import 'package:getx/core/constant/approutes.dart';
 abstract class VerfiyCodeControllerVM extends GetxController {
   checkCode();
 
-  toResetPassword();
+ // toResetPassword();
 }
 
 class VerfiyCodeController extends VerfiyCodeControllerVM {
   late TextEditingController code;
 
   @override
-  checkCode() {}
-
-  @override
-  toResetPassword() {
-    Get.offNamed(AppRoute.resetpassword);
+  checkCode() {
+    Get.offAllNamed(AppRoute.resetpassword);
   }
+
+  // @override
+  // toResetPassword() {
+  //
+  // }
 
   @override
   void onInit() {

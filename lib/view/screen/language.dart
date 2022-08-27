@@ -10,6 +10,7 @@ class LanguagePage extends GetView<MyLocalController> {
 
   @override
   Widget build(BuildContext context) {
+    MyLocalController controller = Get.put(MyLocalController());
     return Scaffold(
       body: Center(
         child: Column(
