@@ -1,4 +1,5 @@
 class AppRoute{
+ static String language = '/';
  static String login = '/login';
  static String signup = '/signup';
  static String onboarding = '/onboarding';

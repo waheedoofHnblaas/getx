@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/core/constant/approutes.dart';
+import 'package:getx/core/services/services.dart';
 import 'package:getx/data/datasource/static/static.dart';
 
 abstract class OnBoardingControllerGet extends GetxController {
@@ -14,6 +15,11 @@ class OnBoardingController extends OnBoardingControllerGet {
 
   PageController pageView = PageController();
 
+  MyServices myservices = Get.find();
+
+
+
+
   @override
   change(int i) {
     currentPage = i;
@@ -25,10 +31,11 @@ class OnBoardingController extends OnBoardingControllerGet {
   next() {
     currentPage++;
     if(currentPage>=onBoardingList.length){
+      myservices.sharedPreferences.setString('first', 'false');
       Get.offAllNamed(AppRoute.login);
     }else{
       pageView.animateToPage(currentPage,
-          duration: Duration(milliseconds: 400), curve: Curves.easeInOut);
+          duration: const Duration(milliseconds: 400), curve: Curves.easeInOut);
     }
 
   }

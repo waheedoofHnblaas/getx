@@ -14,17 +14,21 @@ class SignUpController extends SignUpControllerVM {
   late TextEditingController username;
   late TextEditingController password;
   late GlobalKey<FormState> formState = GlobalKey<FormState>();
+  late bool showText = true;
+
+  changeShow() {
+    showText = !showText;
+    update();
+  }
 
   @override
   signup() {
     if (formState.currentState!.validate()) {
       print('validate');
       Get.toNamed(AppRoute.verfiysignup);
-      Get.delete<SignUpController>();
     } else {
       print('not validate');
     }
-
   }
 
   @override
@@ -48,8 +52,8 @@ class SignUpController extends SignUpControllerVM {
     password.dispose();
     username.dispose();
     phone.dispose();
+    showText = true;
+
     super.dispose();
   }
-
-
 }

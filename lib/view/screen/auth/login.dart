@@ -37,7 +37,7 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const AppLoginLogo(name: AppImagesAssets.logo),
-                const AppLoginTitel(title: 'Welcom Back'),
+                const AppLoginTitel(title: 'Welcome Back'),
                 const SizedBox(
                   height: 5,
                 ),
@@ -49,7 +49,7 @@ class LoginPage extends StatelessWidget {
                   height: 33,
                 ),
                 AppTextField(
-                  validator: (val){
+                  validator: (val) {
                     return validInput(val!, 10, 30, 'email');
                   },
                   controller: controller.email,
@@ -58,19 +58,29 @@ class LoginPage extends StatelessWidget {
                   inputType: TextInputType.emailAddress,
                   onChanged: (val) {},
                 ),
-                AppTextField(
-                  validator: (val){
-                    return validInput(val!, 8, 30, 'password');
-                  },
-                  controller: controller.password,
-                  type: 'Password',
-                  iconData: Icons.password_outlined,
-                  inputType: TextInputType.visiblePassword,
-                  onChanged: (val) {},
-                ),
-                AppSignUpAndLoginButton(text: 'Login',onPressed: (){
-                  controller.login();
+                GetBuilder<LoginController>(builder: (controller) {
+                  return AppTextField(
+                    obscureText: controller.showText,
+                    onTap: () {
+                      controller.changeShow();
+                    },
+                    validator: (val) {
+                      return validInput(val!, 8, 30, 'password');
+                    },
+                    controller: controller.password,
+                    type: 'Password',
+                    iconData: controller.showText
+                        ? Icons.remove_red_eye_outlined
+                        : Icons.password_outlined,
+                    inputType: TextInputType.visiblePassword,
+                    onChanged: (val) {},
+                  );
                 }),
+                AppSignUpAndLoginButton(
+                    text: 'Login',
+                    onPressed: () {
+                      controller.login();
+                    }),
                 const SizedBox(
                   height: 10,
                 ),
@@ -80,8 +90,7 @@ class LoginPage extends StatelessWidget {
                   onPressed: () {
                     controller.toForget();
                   },
-                )
-                ,
+                ),
                 AppLoginSignUp(
                   textone: 'Don\'t have account ? ',
                   texttwo: 'Sing Up',

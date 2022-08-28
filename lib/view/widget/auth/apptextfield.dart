@@ -11,14 +11,19 @@ class AppTextField extends StatelessWidget {
     required this.onChanged,
     required this.controller,
     required this.validator,
+    this.obscureText = false,
+    this.onTap,
   }) : super(key: key);
 
   late String type;
+  late bool obscureText;
   late TextEditingController controller;
   late IconData iconData;
   late TextInputType inputType;
   late void Function(String)? onChanged;
   late String? Function(String?)? validator;
+  final void Function()? onTap;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,10 +31,11 @@ class AppTextField extends StatelessWidget {
       child: TextFormField(
         validator: validator,
         keyboardType: inputType,
+        obscureText: obscureText,
         style: const TextStyle(color: AppColors.primary),
         decoration: InputDecoration(
           hintStyle: Get.theme.textTheme.bodyText1,
-          suffixIcon: Icon(iconData),
+          suffixIcon: IconButton(onPressed: onTap, icon: Icon(iconData)),
           label: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text('$type'),

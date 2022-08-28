@@ -20,12 +20,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    MyServices MyServicescontroller = Get.put(MyServices());
     MyLocalController localcontroller = Get.put(MyLocalController());
     return GetMaterialApp(
         locale: localcontroller.language,
         translations: MyTranslations(),
-        routes: routes,
+        getPages: routes,
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -48,6 +47,6 @@ class MyApp extends StatelessWidget {
               subtitle1: TextStyle(
                   height: 2, color: AppColors.back, fontFamily: 'Cairo')),
         ),
-        home: LanguagePage());
+        );
   }
 }

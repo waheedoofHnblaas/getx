@@ -14,6 +14,12 @@ class LoginController extends LoginControllerVM {
   late TextEditingController email;
   late TextEditingController password;
   late GlobalKey<FormState> formState = GlobalKey<FormState>();
+  late bool showText = true;
+
+  changeShow(){
+    showText = !showText;
+    update();
+  }
 
   @override
   login() {
@@ -46,6 +52,7 @@ class LoginController extends LoginControllerVM {
     // TODO: implement dispose
     email.dispose();
     password.dispose();
+    showText = true;
     super.dispose();
   }
 }
