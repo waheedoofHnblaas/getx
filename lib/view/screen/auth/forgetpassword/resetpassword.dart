@@ -44,7 +44,7 @@ class ResetPasswordPage extends StatelessWidget {
               ),
               AppTextField(
                 validator: (val){
-                  return validInput(val!, 8, 30, 'password');
+                  return validInput(val!, 8, 50, 'password');
 
                 },
                 controller: controller.password,

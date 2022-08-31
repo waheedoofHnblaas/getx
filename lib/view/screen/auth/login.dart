@@ -50,7 +50,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 AppTextField(
                   validator: (val) {
-                    return validInput(val!, 10, 30, 'email');
+                    return validInput(val!, 10, 50, 'email');
                   },
                   controller: controller.email,
                   type: 'Email',
@@ -65,7 +65,7 @@ class LoginPage extends StatelessWidget {
                       controller.changeShow();
                     },
                     validator: (val) {
-                      return validInput(val!, 8, 30, 'password');
+                      return validInput(val!, 8, 50, 'password');
                     },
                     controller: controller.password,
                     type: 'Password',

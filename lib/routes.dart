@@ -12,8 +12,13 @@ import 'package:getx/view/screen/onboarding.dart';
 
 import 'view/screen/auth/forgetpassword/resetpassword.dart';
 import 'view/screen/auth/forgetpassword/verfiycode.dart';
+import 'view/testview.dart';
 
 List<GetPage<dynamic>>? routes = [
+  // GetPage(
+  //   name: AppRoute.language,
+  //   page: () => const TestView(),
+  // ),
   GetPage(
     name: AppRoute.language,
     page: () => const LanguagePage(),

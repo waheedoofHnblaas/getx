@@ -43,7 +43,7 @@ class ForgetPasswordPage extends StatelessWidget {
               ),
               AppTextField(
                 validator: (val){
-                  return validInput(val!, 8, 30, 'email');
+                  return validInput(val!, 8, 50, 'email');
                 },
                 controller: controller.email,
                 type: 'Email',

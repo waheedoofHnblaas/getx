@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:getx/core/constant/colors.dart';
+import 'package:getx/core/function/checkinternet.dart';
 import 'package:getx/core/localization/changelocal.dart';
 import 'package:getx/core/localization/translation.dart';
 import 'package:getx/core/services/services.dart';
+import 'package:getx/initialbinding.dart';
 import 'package:getx/routes.dart';
 import 'package:getx/view/screen/auth/login.dart';
 import 'package:getx/view/screen/language.dart';
@@ -47,6 +49,7 @@ class MyApp extends StatelessWidget {
               subtitle1: TextStyle(
                   height: 2, color: AppColors.back, fontFamily: 'Cairo')),
         ),
+      initialBinding: InitialBinding(),
         );
   }
 }
