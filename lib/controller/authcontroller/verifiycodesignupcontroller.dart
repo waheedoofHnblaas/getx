@@ -4,10 +4,10 @@ import 'package:getx/core/class/statusrequest.dart';
 import 'package:getx/core/constant/approutes.dart';
 import 'package:getx/core/constant/colors.dart';
 import 'package:getx/core/function/handlingdata.dart';
-import 'package:getx/data/datasource/remote/verifiydata.dart';
+import 'package:getx/data/datasource/remote/auth/verifiydata.dart';
 
 abstract class VerifiyCodeSignUpControllerVM extends GetxController {
-  checkCode();
+  checSignUpkCode();
 
 //  toSuccessSignUp();
 }
@@ -15,21 +15,21 @@ abstract class VerifiyCodeSignUpControllerVM extends GetxController {
 class VerifiyCodeSignUpController extends VerifiyCodeSignUpControllerVM {
   late TextEditingController code;
   late String email;
-  StatusRequest? statusRequest;
+  StatusRequest? statusRequest = StatusRequest.none;
 
-  final VerifiyData verifiyData = VerifiyData(Get.find());
+  final VerifiySignUpData verifiyData = VerifiySignUpData(Get.find());
 
   @override
-  checkCode() async {
+  checSignUpkCode() async {
     statusRequest = StatusRequest.loading;
     update();
-    print('verifiy email : ${email}  with code : ${code.text}');
+    print('verified email : ${email}  with code : ${code.text}');
 
-    var response = await verifiyData.verifiyData(
+    var response = await verifiyData.verifiySignUpData(
         email: email, verifiyCode: code.text
     );
     statusRequest = handlingData(response);
-    print(response.toString() + '------');
+    print('$response------');
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
         //data.addAll(response['data']);

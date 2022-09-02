@@ -9,7 +9,6 @@ class AppTextField extends StatelessWidget {
     required this.iconData,
     required this.inputType,
     required this.onChanged,
-    required this.controller,
     required this.validator,
     this.obscureText = false,
     this.onTap,
@@ -17,7 +16,6 @@ class AppTextField extends StatelessWidget {
 
   late String type;
   late bool obscureText;
-  late TextEditingController controller;
   late IconData iconData;
   late TextInputType inputType;
   late void Function(String)? onChanged;

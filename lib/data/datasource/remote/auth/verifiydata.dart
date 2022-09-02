@@ -1,12 +1,12 @@
 import 'package:getx/core/class/crud.dart';
 import 'package:getx/links.dart';
 
-class VerifiyData {
+class VerifiySignUpData {
   Crud crud;
 
-  VerifiyData(this.crud);
+  VerifiySignUpData(this.crud);
 
-  verifiyData({
+  verifiySignUpData({
     required String verifiyCode,
     required String email,
   }) async {

@@ -31,7 +31,7 @@ class OnBoardingController extends OnBoardingControllerGet {
   next() {
     currentPage++;
     if(currentPage>=onBoardingList.length){
-      myservices.sharedPreferences.setString('first', 'false');
+      myservices.sharedPreferences.setString('step', '1');
       Get.offAllNamed(AppRoute.login);
     }else{
       pageView.animateToPage(currentPage,

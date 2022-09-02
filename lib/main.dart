@@ -24,32 +24,37 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     MyLocalController localcontroller = Get.put(MyLocalController());
     return GetMaterialApp(
-        locale: localcontroller.language,
-        translations: MyTranslations(),
-        getPages: routes,
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-            iconTheme: IconThemeData(
-              color: AppColors.black,
-            ),
-            centerTitle: true,
-            elevation: 0,
-            backgroundColor: AppColors.back,
+      locale: localcontroller.language,
+      translations: MyTranslations(),
+      getPages: routes,
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(
+            color: AppColors.black,
           ),
-          textTheme: const TextTheme(
-              headline1: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Cairo',
-                  fontSize: 24,
-                  color: AppColors.black),
-              bodyText1: TextStyle(
-                  height: 2, color: AppColors.gray, fontFamily: 'Cairo'),
-              subtitle1: TextStyle(
-                  height: 2, color: AppColors.back, fontFamily: 'Cairo')),
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: AppColors.back,
         ),
+        textTheme: const TextTheme(
+            headline1: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Cairo',
+                fontSize: 24,
+                color: AppColors.black),
+            bodyText1: TextStyle(
+                height: 2, color: AppColors.gray, fontFamily: 'Cairo'),
+            bodyText2: TextStyle(
+                height: 2,
+                color: AppColors.primary,
+                fontFamily: 'Cairo',
+                fontWeight: FontWeight.bold,),
+            subtitle1: TextStyle(
+                height: 2, color: AppColors.back, fontFamily: 'Cairo')),
+      ),
       initialBinding: InitialBinding(),
-        );
+    );
   }
 }

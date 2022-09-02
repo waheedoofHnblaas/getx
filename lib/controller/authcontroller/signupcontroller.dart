@@ -4,7 +4,7 @@ import 'package:getx/core/class/statusrequest.dart';
 import 'package:getx/core/constant/approutes.dart';
 import 'package:getx/core/constant/colors.dart';
 import 'package:getx/core/function/handlingdata.dart';
-import 'package:getx/data/datasource/remote/signup.dart';
+import 'package:getx/data/datasource/remote/auth/signup.dart';
 
 abstract class SignUpControllerVM extends GetxController {
   signup();
@@ -20,7 +20,7 @@ class SignUpController extends SignUpControllerVM {
   late GlobalKey<FormState> formState = GlobalKey<FormState>();
   late bool showText = true;
 
-  StatusRequest? statusRequest;
+  StatusRequest? statusRequest = StatusRequest.none;
   final SignUpData signUpData = SignUpData(Get.find());
   late List data = [];
 

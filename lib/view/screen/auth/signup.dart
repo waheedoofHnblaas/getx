@@ -60,7 +60,6 @@ class SignUpPage extends StatelessWidget {
                                 TextEditingController(text: val);
                             return validInput(val!, 8, 50, 'username');
                           },
-                          controller: controller.username,
                           type: 'User Name',
                           iconData: Icons.person_outline,
                           inputType: TextInputType.name,
@@ -71,7 +70,6 @@ class SignUpPage extends StatelessWidget {
                             controller.email = TextEditingController(text: val);
                             return validInput(val!, 8, 50, 'email');
                           },
-                          controller: controller.email,
                           type: 'Email',
                           iconData: Icons.email_outlined,
                           inputType: TextInputType.emailAddress,
@@ -82,7 +80,6 @@ class SignUpPage extends StatelessWidget {
                             controller.phone = TextEditingController(text: val);
                             return validInput(val!, 8, 50, 'phone');
                           },
-                          controller: controller.phone,
                           type: 'Phone',
                           iconData: Icons.phone_outlined,
                           inputType: TextInputType.number,
@@ -99,7 +96,6 @@ class SignUpPage extends StatelessWidget {
                                     TextEditingController(text: val);
                                 return validInput(val!, 8, 50, 'password');
                               },
-                              controller: controller.password,
                               type: 'Password',
                               iconData: Icons.password_outlined,
                               inputType: TextInputType.visiblePassword,
