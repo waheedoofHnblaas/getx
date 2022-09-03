@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:getx/core/constant/colors.dart';
 import 'package:getx/core/function/checkinternet.dart';
@@ -6,14 +7,16 @@ import 'package:getx/core/localization/translation.dart';
 import 'package:getx/core/services/services.dart';
 import 'package:getx/initialbinding.dart';
 import 'package:getx/routes.dart';
-import 'package:getx/view/screen/auth/login.dart';
-import 'package:getx/view/screen/language.dart';
 import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initServices();
-  runApp(const MyApp());
+
+  runApp(DevicePreview(
+    builder: (context) => const MyApp(),
+    enabled: true,
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -30,8 +33,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        appBarTheme: const AppBarTheme(
-          iconTheme: IconThemeData(
+        appBarTheme: AppBarTheme(
+          toolbarHeight: Get.height * 0.06,
+          iconTheme: const IconThemeData(
             color: AppColors.black,
           ),
           centerTitle: true,
@@ -47,10 +51,11 @@ class MyApp extends StatelessWidget {
             bodyText1: TextStyle(
                 height: 2, color: AppColors.gray, fontFamily: 'Cairo'),
             bodyText2: TextStyle(
-                height: 2,
-                color: AppColors.primary,
-                fontFamily: 'Cairo',
-                fontWeight: FontWeight.bold,),
+              height: 2,
+              color: AppColors.primary,
+              fontFamily: 'Cairo',
+              fontWeight: FontWeight.bold,
+            ),
             subtitle1: TextStyle(
                 height: 2, color: AppColors.back, fontFamily: 'Cairo')),
       ),

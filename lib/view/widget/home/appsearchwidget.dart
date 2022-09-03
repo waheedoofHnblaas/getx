@@ -8,9 +8,9 @@ class AppSearchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: Row(
+    return SliverAppBar(
+      floating: true,
+      title: Row(
         children: [
           Expanded(
             flex: 5,
@@ -33,14 +33,14 @@ class AppSearchWidget extends StatelessWidget {
                   focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: AppColors.primary)),
                   hintStyle: Get.theme.textTheme.bodyText1,
-                  suffixIcon: IconButton(
+                  prefixIcon: IconButton(
                     onPressed: () {},
                     icon: const Icon(CupertinoIcons.search,
                         color: AppColors.primary),
                   ),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
+                  const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),

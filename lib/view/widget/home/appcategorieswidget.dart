@@ -16,23 +16,25 @@ class AppCategoriesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120,
+      height: Get.height * 0.16,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: controller.categories.length,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Column(
               children: [
                 Container(
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(100),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.4),
                         spreadRadius: 1,
                         blurRadius: 8,
-                        offset: const Offset(0, 3), // changes position of shadow
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
                       ),
                     ],
                   ),

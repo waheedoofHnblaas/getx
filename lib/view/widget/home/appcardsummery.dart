@@ -8,7 +8,7 @@ class AppCardSummery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.height * 0.25,
+       height: Get.height * 0.25,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: AppColors.card,
@@ -21,7 +21,7 @@ class AppCardSummery extends StatelessWidget {
             child: Container(
               width: 200,
               height: 200,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(100)),
                 color: AppColors.secondCard,
               ),
