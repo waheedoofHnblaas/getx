@@ -9,62 +9,65 @@ class AppSearchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      primary: true,
       floating: true,
       title: Row(
         children: [
-          Expanded(
-            flex: 5,
-            child: Container(
-              decoration: BoxDecoration(
-                color: AppColors.second,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: TextFormField(
-                cursorColor: AppColors.primary,
-                textAlignVertical: TextAlignVertical.center,
-                textAlign: TextAlign.center,
-                validator: (v) {
-                  return null;
-                },
-                keyboardType: TextInputType.name,
-                style: const TextStyle(color: AppColors.primary),
-                onChanged: (val) {},
-                decoration: InputDecoration(
-                  focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: AppColors.primary)),
-                  hintStyle: Get.theme.textTheme.bodyText1,
-                  prefixIcon: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(CupertinoIcons.search,
-                        color: AppColors.primary),
-                  ),
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
-                  contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-              ),
+        Expanded(
+        flex: 6,
+        child: Container(
+          decoration: BoxDecoration(
+          color: AppColors.back,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: TextFormField(
+          cursorColor: AppColors.primary,
+          textAlignVertical: TextAlignVertical.center,
+          textAlign: TextAlign.center,
+          validator: (v) {
+            return null;
+          },
+          keyboardType: TextInputType.name,
+          style: const TextStyle(color: AppColors.primary),
+          onChanged: (val) {},
+          decoration: InputDecoration(
+            focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: AppColors.gray)),
+            hintStyle: Get.theme.textTheme.bodyText1,
+            prefixIcon: IconButton(
+              onPressed: () {},
+              icon: const Icon(CupertinoIcons.search,
+                  color: AppColors.primary),
+            ),
+            floatingLabelBehavior: FloatingLabelBehavior.never,
+            contentPadding:
+            const EdgeInsets.symmetric(horizontal: 25, vertical: 2),
+            border: OutlineInputBorder(
+              borderSide:
+              BorderSide(color: AppColors.back, width: 5),
+              borderRadius: BorderRadius.circular(8),
             ),
           ),
-          const SizedBox(
-            width: 5,
-          ),
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: AppColors.primary,
-              ),
-              child: IconButton(
-                  color: AppColors.back,
-                  onPressed: () {},
-                  icon: const Icon(Icons.filter_list)),
-            ),
-          )
-        ],
+        ),
       ),
+    ),
+    const SizedBox(
+    width: 5,
+    ),
+    Expanded(
+    child: Container(
+    decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(8),
+    color: AppColors.primary,
+    ),
+    child: IconButton(
+    color: AppColors.back,
+    onPressed: () {},
+    icon: const Icon(Icons.filter_list)),
+    ),
+    )
+    ],
+    ),
     );
   }
 }

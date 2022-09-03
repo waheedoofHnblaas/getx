@@ -9,7 +9,6 @@ import 'package:getx/view/widget/home/appbarhome.dart';
 import 'package:getx/view/widget/home/appcardsummery.dart';
 import 'package:getx/view/widget/home/appcategorieswidget.dart';
 import 'package:getx/view/widget/home/appitemcardview.dart';
-import 'package:getx/view/widget/home/appitemswidget.dart';
 import 'package:getx/view/widget/home/appsearchwidget.dart';
 import 'package:getx/view/widget/home/personalicon.dart';
 
@@ -18,64 +17,36 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HomeController controller = Get.put(HomeController());
-    return Scaffold(
+    Get.put(HomeController());
+    return GetBuilder<HomeController>(
+      builder: (controller) => Scaffold(
+      appBar: AppBar(title:
+      AppBarHomeWidget(controller),),
       backgroundColor: AppColors.back,
-      body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 10),
-        padding: const EdgeInsets.only(top: 10),
-        child: CustomScrollView(
-          slivers: [
-            AppBarHomeWidget(controller),
-            const AppSearchWidget(),
-            SliverList(
-              delegate: SliverChildListDelegate([
-                SizedBox(
-                  height: 8,
-                ),
-                AppCardSummery(),
-                AppCategoriesWidget(controller),
+      body: HandelingView(
+            statusRequest: controller.statusRequest!,
+            widget: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10),
 
+              child: CustomScrollView(
+                slivers: [
+                  const AppSearchWidget(),
+                  SliverList(
+                    delegate: SliverChildListDelegate([
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      const AppCardSummery(),
+                      AppCategoriesWidget(controller),
 
-                Text('data'),
-                Text('data'),
-                Text('data'),
-                Text('data'),
-                Text('data'),
-                Text('data'),
-              ]),
-            ),
-            SliverGrid(
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200.0,
-                mainAxisSpacing: 10.0,
-                crossAxisSpacing: 10.0,
-                childAspectRatio: 4.0,
+                    ]),
+                  ),
+                  AppItemCardView(controller: controller),
+
+                ],
               ),
-              delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                  return AppItemCardView(controller: controller, index: index);
-                },
-                childCount: controller.items.length,
-              ),
-            )
-          ],
-        ),
+            )),
       ),
     );
   }
 }
-
-// GetBuilder<HomeController>(builder: (controller) {
-// return HandelingView(
-// statusRequest: controller.statusRequest!,
-// widget: SliverFixedExtentList(
-// itemExtent: 4,
-// delegate: SliverChildListDelegate([
-// AppSearchWidget(),
-// const AppCardSummery(),
-// AppCategoriesWidget(controller),
-// AppItemsWidget(controller),
-// ]),
-// ));
-// })

@@ -4,7 +4,7 @@ class AppColors {
   static const Color gray = Color(0xff515151);
   static const Color black = Colors.black;
   static const Color back = Color(0xffeff4fd);
-  static const Color primary = Color(0xff021a65);
+  static const Color primary = Color(0xff066fc5);
   static const Color second = Color(0xffffffff);
   static const Color card = Color(0xFF4081FF);
   //static const Color card = Colors.pinkAccent;
