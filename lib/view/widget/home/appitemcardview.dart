@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/controller/homecontroller.dart';
+import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/core/constant/colors.dart';
 import 'package:getx/view/widget/home/appcachiamge.dart';
 
@@ -37,24 +37,47 @@ class AppItemCardView extends StatelessWidget {
                       topLeft: Radius.circular(14),
                     ),
                     child: AppCachImage(
-                        imageUrl: '${controller.items[index]['items_image']}'),
+                        imageUrl:
+                            controller.itemsController[index].itemsImage!),
                   ),
                 ),
                 Text(
-                  controller.items[index]['items_name'],
+                  controller.itemsController[index].itemsName!,
                   textAlign: TextAlign.center,
                   style: Get.textTheme.subtitle1!.copyWith(fontSize: 21),
                 ),
-                Text(
-                  controller.items[index]['items_price'] + ' \$',
-                  textAlign: TextAlign.center,
-                  style: Get.textTheme.subtitle1!.copyWith(fontSize: 11),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      '${controller.itemsController[index].itemsPrice!} \$',
+                      textAlign: TextAlign.center,
+                      style: Get.textTheme.subtitle1!.copyWith(fontSize: 11),
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                       const Icon(
+                          Icons.arrow_circle_down_outlined,
+                          color: Colors.greenAccent,
+                          size: 13,
+                        ),
+                        const SizedBox(width: 3,),
+                        Text(
+                          '${controller.itemsController[index].itemsDiscount!}  %',
+                          textAlign: TextAlign.center,
+                          style:
+                              Get.textTheme.subtitle1!.copyWith(fontSize: 11),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ],
             ),
           );
         },
-        childCount: controller.items.length,
+        childCount: controller.itemsController.length,
       ),
     );
   }

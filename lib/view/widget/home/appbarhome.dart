@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/controller/homecontroller.dart';
+import 'package:getx/controller/home/homecontroller.dart';
+import 'package:getx/controller/home/personcontroller.dart';
 import 'package:getx/view/widget/home/personalicon.dart';
 
 class AppBarHomeWidget extends StatelessWidget {
-   AppBarHomeWidget(this.controller);
+   AppBarHomeWidget({Key? key}) : super(key: key);
 
-  HomeController controller;
+  PersonController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return Row(

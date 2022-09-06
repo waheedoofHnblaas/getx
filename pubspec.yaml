@@ -78,6 +78,7 @@ dependencies:
   image_pickers: ^2.0.0+2
   flutter_otp_text_field: ^1.1.0
   lottie: ^1.4.2
+  scroll_bottom_navigation_bar: ^4.0.0
 
 dev_dependencies:
   flutter_test:

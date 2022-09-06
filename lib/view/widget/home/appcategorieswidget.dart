@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:getx/controller/homecontroller.dart';
+import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/core/constant/colors.dart';
 import 'package:getx/links.dart';
 
@@ -19,7 +19,7 @@ class AppCategoriesWidget extends StatelessWidget {
       height: Get.height * 0.16,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: controller.categories.length,
+        itemCount: controller.categoriesController.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -43,7 +43,7 @@ class AppCategoriesWidget extends StatelessWidget {
                     // width: 77,
                     backgroundColor: AppColors.second,
                     child: SvgPicture.network(
-                      '${AppLinks.imageLink}${controller.categories[index]['categories_image']}',
+                      '${AppLinks.imageLink}${controller.categoriesController[index].categoriesImage!}',
                       color: AppColors.primary,
                       width: Get.width * 0.1,
                       height: Get.width * 0.1,
@@ -51,7 +51,7 @@ class AppCategoriesWidget extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  controller.categories[index]['categories_name'],
+                  controller.categoriesController[index].categoriesName!,
                   style: Get.textTheme.bodyText2,
                 ),
               ],

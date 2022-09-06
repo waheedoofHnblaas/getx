@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/controller/homecontroller.dart';
+import 'package:getx/controller/home/homecontroller.dart';
+import 'package:getx/controller/home/personcontroller.dart';
 
 class PersonalIconButton extends StatelessWidget {
   PersonalIconButton(this.controller);
 
- final HomeController controller;
+  PersonController controller;
 
   @override
   Widget build(BuildContext context) {

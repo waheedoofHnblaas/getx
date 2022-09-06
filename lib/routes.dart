@@ -12,7 +12,7 @@ import 'package:getx/view/screen/onboarding.dart';
 
 import 'view/screen/auth/forgetpassword/resetpassword.dart';
 import 'view/screen/auth/forgetpassword/verfiycode.dart';
-import 'view/screen/home.dart';
+import 'view/screen/home/home.dart';
 import 'view/testview.dart';
 
 List<GetPage<dynamic>>? routes = [
@@ -30,7 +30,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.signup, page: () => const SignUpPage()),
   GetPage(name: AppRoute.forget, page: () => const ForgetPasswordPage()),
   GetPage(name: AppRoute.verfiy, page: () => const VerificationPage()),
-  GetPage(name: AppRoute.home, page: () => const HomePage()),
+  GetPage(name: AppRoute.home, page: () => const Home()),
   GetPage(
       name: AppRoute.verfiysignup, page: () => const VerificationSignUpPage()),
   GetPage(name: AppRoute.resetpassword, page: () => const ResetPasswordPage()),
