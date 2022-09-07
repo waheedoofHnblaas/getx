@@ -53,9 +53,9 @@ class AppBottomNav extends GetView<HomeController> {
                 ),
                 BottomNavigationBarItem(
                     icon: Icon(
-                      CupertinoIcons.person,
+                      Icons.settings,
                     ),
-                    label: 'person'),
+                    label: 'settings'),
               ],
             ),
           ),

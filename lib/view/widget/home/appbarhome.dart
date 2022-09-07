@@ -2,24 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/home/personcontroller.dart';
+import 'package:getx/core/constant/colors.dart';
 import 'package:getx/view/widget/home/personalicon.dart';
 
 class AppBarHomeWidget extends StatelessWidget {
-   AppBarHomeWidget({Key? key}) : super(key: key);
+  AppBarHomeWidget({Key? key}) : super(key: key);
 
-  PersonController controller = Get.find();
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
+    return AppBar(
+      title: Padding(
+        padding: const EdgeInsets.only(bottom: 10.0),
+        child: Text(
           'Home',
-          style: Get.theme.textTheme.headline1!
-              .copyWith(fontSize: 18),
+          textAlign: TextAlign.center,
+          style: Get.textTheme.headline1!.copyWith(color: AppColors.primary),
         ),
-        PersonalIconButton(controller)
-      ],
+      ),
     );
   }
 }

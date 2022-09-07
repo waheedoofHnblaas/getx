@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const AppLoginLogo(name: AppImagesAssets.logo),
+                        const AppLoginLogo(name: AppImagesAssets.logoJson),
                         const AppLoginTitel(title: 'Welcome Back'),
                         const SizedBox(
                           height: 5,

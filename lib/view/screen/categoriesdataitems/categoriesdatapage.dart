@@ -4,8 +4,9 @@ import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/home/personcontroller.dart';
 import 'package:getx/core/class/handelingview.dart';
 import 'package:getx/core/constant/colors.dart';
+import 'package:getx/view/widget/categoriesdataitems/appcategoriesitems.dart';
 import 'package:getx/view/widget/home/appbarhome.dart';
-import 'package:getx/view/widget/home/appcategoriesitems.dart';
+import 'package:getx/view/widget/categoriesdataitems/appcategoriesitems.dart';
 import 'package:getx/view/widget/home/appitemcardview.dart';
 import 'package:getx/view/widget/home/appsearchwidget.dart';
 

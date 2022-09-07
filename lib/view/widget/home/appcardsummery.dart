@@ -10,7 +10,7 @@ class AppCardSummery extends StatelessWidget {
     return Container(
        height: Get.height * 0.25,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(16),
         color: AppColors.card,
       ),
       child: Stack(

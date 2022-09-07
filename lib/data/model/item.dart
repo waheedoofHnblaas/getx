@@ -1,4 +1,4 @@
-class itemsModel {
+class ItemsModel {
   String? itemsId;
   String? itemsCat;
   String? itemsName;
@@ -17,7 +17,7 @@ class itemsModel {
   String? categoriesDatetime;
   String? categoriesImage;
 
-  itemsModel(
+  ItemsModel(
       {this.itemsId,
         this.itemsCat,
         this.itemsName,
@@ -36,7 +36,7 @@ class itemsModel {
         this.categoriesDatetime,
         this.categoriesImage});
 
-  itemsModel.fromJson(Map<String, dynamic> json) {
+  ItemsModel.fromJson(Map<String, dynamic> json) {
     itemsId = json['items_id'];
     itemsCat = json['items_cat'];
     itemsName = json['items_name'];

@@ -10,11 +10,19 @@ import 'package:getx/core/services/services.dart';
 import 'package:getx/data/datasource/remote/home/homeData.dart';
 import 'package:getx/data/model/categories.dart';
 import 'package:getx/data/model/item.dart';
+import 'package:getx/view/screen/home/itemdata.dart';
 
 abstract class HomeControllerImp extends GetxController {
   changePage(int i);
 
+  logout();
+
   getHomeData();
+
+  getCategoriesItems(String id);
+
+  goToItemDataPage(ItemsModel);
+  goToCategoriesPage(String id, String name);
 }
 
 class HomeController extends HomeControllerImp {
@@ -22,13 +30,12 @@ class HomeController extends HomeControllerImp {
   StatusRequest? statusRequest = StatusRequest.none;
   final HomeData homeData = HomeData(Get.find());
   List<CategoriesModel> categoriesController = [];
-  List<itemsModel> itemsController = [];
+  List<ItemsModel> itemsController = [];
+  ScrollController scrollController = ScrollController();
+  List<ItemsModel> categoriesItemsController = [];
+  int currentPage = 0;
 
-  var currentPage = 0.obs;
-
-  final ScrollController scrollController = ScrollController();
   final offset = 0.0.obs;
-
 
   @override
   void onInit() {
@@ -36,13 +43,14 @@ class HomeController extends HomeControllerImp {
     scrollController.addListener(() {
       offset.value = scrollController.offset;
       print(offset.value.toString());
+      update();
     });
     super.onInit();
   }
 
   @override
   changePage(pageIndex) {
-    currentPage = pageIndex.obs;
+    currentPage = pageIndex;
     print(currentPage);
     print('HomeController currentPage');
     update();
@@ -65,7 +73,7 @@ class HomeController extends HomeControllerImp {
         }
         List items = await response['items'];
         for (var element in items) {
-          itemsController.add(itemsModel.fromJson(element));
+          itemsController.add(ItemsModel.fromJson(element));
         }
       } else {
         Get.defaultDialog(
@@ -79,5 +87,50 @@ class HomeController extends HomeControllerImp {
       }
     }
     update();
+  }
+
+  void onTap(int i) {
+    print('ScrollBottomNavigationBar $i');
+    print('ScrollBottomNavigationBar ');
+    changePage(i);
+  }
+
+  @override
+  logout() async {
+    try {
+      await myServices.sharedPreferences.setString('step', '1');
+      Get.offAllNamed(AppRoute.login);
+    } catch (_) {
+      Get.offAllNamed(AppRoute.home);
+    }
+  }
+
+  @override
+  goToCategoriesPage(id, name) {
+    Get.toNamed(
+      AppRoute.categoriesdata,
+      arguments: {
+        'categories_id': id,
+        'categories_name': name,
+      },
+    );
+  }
+
+  @override
+  getCategoriesItems(String id) {
+    categoriesItemsController.clear();
+    for (ItemsModel element in itemsController) {
+      if (element.categoriesId == id) {
+        categoriesItemsController.add(element);
+      } else {
+        categoriesItemsController.remove(element);
+      }
+    }
+    update();
+  }
+
+  @override
+  goToItemDataPage(ItemsModel) {
+    Get.toNamed(AppRoute.itemdata,arguments: {'item':ItemsModel});
   }
 }

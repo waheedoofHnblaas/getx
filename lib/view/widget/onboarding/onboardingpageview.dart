@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:getx/controller/onboardingcontoller.dart';
 import 'package:getx/core/constant/colors.dart';
 import 'package:getx/data/datasource/static/static.dart';
+import 'package:lottie/lottie.dart';
 
 class OnBoardingPageView extends GetView<OnBoardingController> {
   const OnBoardingPageView({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class OnBoardingPageView extends GetView<OnBoardingController> {
               onBoardingList[index].title!.tr,
               style: Get.theme.textTheme.headline1,
             ),
-            Image.asset(
+            Lottie.asset(
               onBoardingList[index].image!,
               fit: BoxFit.fill,
               height: 250,

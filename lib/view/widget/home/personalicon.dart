@@ -5,9 +5,9 @@ import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/home/personcontroller.dart';
 
 class PersonalIconButton extends StatelessWidget {
-  PersonalIconButton(this.controller);
+  PersonalIconButton();
 
-  PersonController controller;
+  PersonController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {

@@ -8,6 +8,6 @@ class AppLoginLogo extends StatelessWidget {
   final String name;
   @override
   Widget build(BuildContext context) {
-    return Lottie.asset(name);
+    return Lottie.asset(name, width: 200);
   }
 }

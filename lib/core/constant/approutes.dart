@@ -4,6 +4,8 @@ class AppRoute{
  static String signup = '/signup';
  static String onboarding = '/onboarding';
  static String home = '/home';
+ static String categoriesdata = '/categoriesdata';
+ static String itemdata = '/itemdata';
  static String forget = '/forget';
  static String verfiy = '/verfiy';
  static String verfiysignup = '/verfiysignup';

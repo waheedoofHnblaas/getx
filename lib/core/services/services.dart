@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:getx/core/constant/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MyServices extends GetxService {
@@ -8,9 +11,10 @@ class MyServices extends GetxService {
 
   Future<MyServices> init() async {
     await Firebase.initializeApp();
-    SystemChrome.setEnabledSystemUIOverlays([
-      SystemUiOverlay.bottom, //This line is used for showing the bottom bar
-    ]);
+     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    systemNavigationBarColor: AppColors.back, // navigation bar color
+    statusBarColor: Colors.transparent, 
+  ));
     sharedPreferences = await SharedPreferences.getInstance();
     print('==============init==============');
     return this;

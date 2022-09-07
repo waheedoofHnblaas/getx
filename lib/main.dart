@@ -1,7 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:getx/core/constant/colors.dart';
-import 'package:getx/core/function/checkinternet.dart';
+import 'package:getx/core/constant/themes.dart';
 import 'package:getx/core/localization/changelocal.dart';
 import 'package:getx/core/localization/translation.dart';
 import 'package:getx/core/services/services.dart';
@@ -32,33 +32,7 @@ class MyApp extends StatelessWidget {
       getPages: routes,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          toolbarHeight: Get.height * 0.06,
-          iconTheme: const IconThemeData(
-            color: AppColors.black,
-          ),
-          centerTitle: true,
-          elevation: 0,
-          backgroundColor: AppColors.back,
-        ),
-        textTheme: const TextTheme(
-            headline1: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Cairo',
-                fontSize: 24,
-                color: AppColors.black),
-            bodyText1: TextStyle(
-                height: 2, color: AppColors.gray, fontFamily: 'Cairo'),
-            bodyText2: TextStyle(
-              height: 2,
-              color: AppColors.primary,
-              fontFamily: 'Cairo',
-              fontWeight: FontWeight.bold,
-            ),
-            subtitle1: TextStyle(
-                height: 2, color: AppColors.back, fontFamily: 'Cairo')),
-      ),
+      theme: AppThemes().getTheme(),
       initialBinding: InitialBinding(),
     );
   }

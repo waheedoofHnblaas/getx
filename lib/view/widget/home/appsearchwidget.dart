@@ -7,14 +7,13 @@ class AppSearchWidget extends StatelessWidget {
   const AppSearchWidget({Key? key}) : super(key: key);
 
   onBack(context) {
-   var currentFocus = FocusScope.of(context);
-   if (!currentFocus.hasPrimaryFocus &&
-       currentFocus.focusedChild != null) {
-     currentFocus.focusedChild!.unfocus();
-     return false;
-   } else {
-     return true;
-   }
+    var currentFocus = FocusScope.of(context);
+    if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+      currentFocus.focusedChild!.unfocus();
+      return false;
+    } else {
+      return true;
+    }
   }
 
   @override
@@ -24,17 +23,19 @@ class AppSearchWidget extends StatelessWidget {
           return onBack(context);
         },
         child: SliverAppBar(
+          automaticallyImplyLeading: false,
           primary: true,
           floating: true,
           title: SizedBox(
             height: Get.height * 0.06,
+            width: Get.width * 0.9,
             child: Row(
               children: [
                 Expanded(
                   flex: 6,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: AppColors.gray.withOpacity(0.1),
+                      color: AppColors.primaryShadow,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: TextFormField(
@@ -79,7 +80,7 @@ class AppSearchWidget extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: AppColors.gray.withOpacity(0.1),
+                      color: AppColors.primaryShadow,
                     ),
                     child: IconButton(
                         color: AppColors.primary,

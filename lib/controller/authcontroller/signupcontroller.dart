@@ -43,7 +43,7 @@ class SignUpController extends SignUpControllerVM {
         username: username.text,
       );
       statusRequest = handlingData(response);
-      print(response.toString()+'------');
+      print('$response------');
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == 'success') {
           //data.addAll(response['data']);
