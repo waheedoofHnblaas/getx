@@ -8,10 +8,10 @@ class AppCardSummery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-       height: Get.height * 0.25,
+      height: Get.height * 0.25,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: AppColors.card,
+        color: Get.theme.cardColor,
       ),
       child: Stack(
         children: [
@@ -21,9 +21,11 @@ class AppCardSummery extends StatelessWidget {
             child: Container(
               width: 200,
               height: 200,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(100)),
-                color: AppColors.secondCard,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(100),
+                ),
+                color: Get.theme.hoverColor,
               ),
             ),
           ),
@@ -31,12 +33,13 @@ class AppCardSummery extends StatelessWidget {
             title: Text(
               'A Summer Surprise',
               style: Get.textTheme.bodyText1!.copyWith(
-                  color: AppColors.back.withOpacity(0.9), fontSize: 21),
+                  color: Get.theme.backgroundColor.withOpacity(0.9),
+                  fontSize: 21),
             ),
             subtitle: Text(
               'Cache back 20%',
               style: Get.textTheme.headline1!
-                  .copyWith(color: AppColors.back, fontSize: 28),
+                  .copyWith(color: Get.theme.backgroundColor, fontSize: 28),
             ),
           ),
         ],

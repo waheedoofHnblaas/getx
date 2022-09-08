@@ -21,7 +21,7 @@ class OnBoardingSlider extends StatelessWidget {
                 width: controller.currentPage==index?20:6,
                 height: 6,
                 decoration: BoxDecoration(
-                  color: AppColors.primary,
+                  color: Get.theme.primaryColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
               ))

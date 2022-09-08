@@ -18,7 +18,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       appBar: AppBar(
-        title: AppBarHomeWidget(),
+        title: const AppBarHomeWidget(),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -30,7 +30,6 @@ class Home extends StatelessWidget {
       ),
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: AppBottomNav(),
-      backgroundColor: AppColors.back,
     );
   }
 }

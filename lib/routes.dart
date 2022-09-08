@@ -7,7 +7,7 @@ import 'package:getx/view/screen/auth/signup.dart';
 import 'package:getx/view/screen/auth/forgetpassword/success_resetpassword.dart';
 import 'package:getx/view/screen/auth/success_signup.dart';
 import 'package:getx/view/screen/auth/verfiycodesignup.dart';
-import 'package:getx/view/screen/home/itemdata.dart';
+import 'package:getx/view/screen/itemsdata/itemdata.dart';
 import 'package:getx/view/screen/language.dart';
 import 'package:getx/view/screen/onboarding.dart';
 
@@ -45,13 +45,11 @@ List<GetPage<dynamic>>? routes = [
     page: () => CategoriesDataPage(),
     transition: Transition.rightToLeft,
     transitionDuration: const Duration(milliseconds: 333),
-
   ),
   GetPage(
     name: AppRoute.itemdata,
     page: () => ItemDataPage(),
     transition: Transition.downToUp,
     transitionDuration: const Duration(milliseconds: 333),
-
   ),
 ];

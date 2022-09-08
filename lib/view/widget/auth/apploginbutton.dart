@@ -18,11 +18,11 @@ class AppSignUpAndLoginButton extends GetView<OnBoardingController> {
             borderRadius: BorderRadius.circular(10)),
         padding:
         const EdgeInsets.symmetric(horizontal: 100, vertical: 15),
-        color: AppColors.primary,
+        color: Get.theme.primaryColor,
         onPressed: onPressed,
         child:   Text(
           text,
-          style:const TextStyle(color: AppColors.back,fontFamily: 'Cairo'),
+          style: TextStyle(color:Get.theme.backgroundColor,fontFamily: 'Cairo'),
         ),
       ),
     );

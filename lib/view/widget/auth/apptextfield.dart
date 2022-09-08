@@ -30,7 +30,7 @@ class AppTextField extends StatelessWidget {
         validator: validator,
         keyboardType: inputType,
         obscureText: obscureText,
-        style: const TextStyle(color: AppColors.primary),
+        style:  TextStyle(color: Get.theme.primaryColor),
         decoration: InputDecoration(
           hintStyle: Get.theme.textTheme.bodyText1,
           suffixIcon: IconButton(onPressed: onTap, icon: Icon(iconData)),

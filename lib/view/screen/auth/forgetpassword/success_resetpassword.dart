@@ -16,7 +16,6 @@ class SuccessResetPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // CheckEmailController controller = Get.put(CheckEmailController());
     return Scaffold(
-      backgroundColor: AppColors.back,
       appBar: AppBar(
         title: Text(
           'Success Reset Password',

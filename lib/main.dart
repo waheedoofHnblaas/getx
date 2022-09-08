@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:getx/controller/themecontroller.dart';
 import 'package:getx/core/constant/colors.dart';
 import 'package:getx/core/constant/themes.dart';
 import 'package:getx/core/localization/changelocal.dart';
@@ -12,7 +13,6 @@ import 'package:get/get.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initServices();
-
   runApp(DevicePreview(
     builder: (context) => const MyApp(),
     enabled: true,
@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MyLocalController localcontroller = Get.put(MyLocalController());
+    ThemeController themeController = Get.put(ThemeController());
     return GetMaterialApp(
       locale: localcontroller.language,
       translations: MyTranslations(),
@@ -33,6 +34,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: AppThemes().getTheme(),
+      darkTheme: AppThemes().getDarkTheme(),
+      themeMode:
+           themeController.myServices.sharedPreferences.getString('themeData') ==
+                 'dark' ? ThemeMode.dark : ThemeMode.light,
       initialBinding: InitialBinding(),
     );
   }

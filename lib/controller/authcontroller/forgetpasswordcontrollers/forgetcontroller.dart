@@ -37,7 +37,7 @@ class ForgetController extends ForgetControllerVM {
             titleStyle: Get.textTheme.headline1,
             middleText: 'email is wrong',
             middleTextStyle: Get.textTheme.bodyText1,
-            backgroundColor: AppColors.back,
+            backgroundColor:Get.theme.backgroundColor,
           );
           statusRequest = StatusRequest.failure;
         }

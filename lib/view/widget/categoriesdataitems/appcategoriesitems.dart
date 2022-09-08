@@ -20,9 +20,9 @@ class AppCategoriesItems extends StatelessWidget {
             const SizedBox(
               height: 400,
             ),
-            const Icon(
+             Icon(
               Icons.hourglass_empty_outlined,
-              color: AppColors.primary,
+              color:Get.theme.primaryColor,
               size: 44,
             ),
             const SizedBox(

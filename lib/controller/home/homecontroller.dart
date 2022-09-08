@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx/core/class/crud.dart';
 import 'package:getx/core/class/statusrequest.dart';
 import 'package:getx/core/constant/approutes.dart';
 import 'package:getx/core/constant/colors.dart';
@@ -10,7 +11,7 @@ import 'package:getx/core/services/services.dart';
 import 'package:getx/data/datasource/remote/home/homeData.dart';
 import 'package:getx/data/model/categories.dart';
 import 'package:getx/data/model/item.dart';
-import 'package:getx/view/screen/home/itemdata.dart';
+import 'package:getx/view/screen/itemsdata/itemdata.dart';
 
 abstract class HomeControllerImp extends GetxController {
   changePage(int i);
@@ -21,6 +22,7 @@ abstract class HomeControllerImp extends GetxController {
 
   getCategoriesItems(String id);
 
+  // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
   goToItemDataPage(ItemsModel);
   goToCategoriesPage(String id, String name);
 }
@@ -64,7 +66,7 @@ class HomeController extends HomeControllerImp {
 
     var response = await homeData.homeData();
     statusRequest = handlingData(response);
-    print('$response------');
+    print('${response['categories'][1]['categories_name']}------');
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
         List categories = await response['categories'];
@@ -81,7 +83,7 @@ class HomeController extends HomeControllerImp {
           titleStyle: Get.textTheme.headline1,
           middleText: 'no data available',
           middleTextStyle: Get.textTheme.bodyText1,
-          backgroundColor: AppColors.back,
+          backgroundColor:  Get.theme.backgroundColor,
         );
         statusRequest = StatusRequest.failure;
       }
@@ -131,6 +133,6 @@ class HomeController extends HomeControllerImp {
 
   @override
   goToItemDataPage(ItemsModel) {
-    Get.toNamed(AppRoute.itemdata,arguments: {'item':ItemsModel});
+    Get.toNamed(AppRoute.itemdata, arguments: {'item': ItemsModel});
   }
 }

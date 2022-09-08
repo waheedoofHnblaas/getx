@@ -25,7 +25,7 @@ class AppLoginSignUp extends StatelessWidget {
           child: Text(
             texttwo,
             textAlign: TextAlign.start,
-            style: TextStyle(color: AppColors.primary),
+            style: TextStyle(color: Get.theme.primaryColor),
           ),
         ),
       ],

@@ -42,7 +42,7 @@ class VerfiyCodeController extends VerfiyCodeControllerVM {
           titleStyle: Get.textTheme.headline1,
           middleText: 'code is not correct',
           middleTextStyle: Get.textTheme.bodyText1,
-          backgroundColor: AppColors.back,
+          backgroundColor: Get.theme.backgroundColor,
         );
         statusRequest = StatusRequest.failure;
       }

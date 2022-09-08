@@ -65,7 +65,7 @@ class LoginController extends LoginControllerVM {
             titleStyle: Get.textTheme.headline1,
             middleText: 'email or password is wrong',
             middleTextStyle: Get.textTheme.bodyText1,
-            backgroundColor: AppColors.back,
+            backgroundColor:  Get.theme.backgroundColor,
           );
           statusRequest = StatusRequest.failure;
         }

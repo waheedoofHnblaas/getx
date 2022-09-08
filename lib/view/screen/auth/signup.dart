@@ -23,7 +23,6 @@ class SignUpPage extends StatelessWidget {
 
     Get.put(SignUpController());
     return Scaffold(
-      backgroundColor: AppColors.back,
       appBar: AppBar(
         title: Text(
           'Sign Up',

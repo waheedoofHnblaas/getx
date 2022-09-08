@@ -3,7 +3,6 @@ import 'package:getx/core/constant/imagesassets.dart';
 import 'package:getx/data/model/onboardingmodel.dart';
 import 'package:getx/view/screen/home/pages/homepage.dart';
 import 'package:getx/view/screen/home/pages/orderspage.dart';
-
 import '../../../view/screen/home/pages/settingpage.dart';
 
 List<OnBoardingModel> onBoardingList = [

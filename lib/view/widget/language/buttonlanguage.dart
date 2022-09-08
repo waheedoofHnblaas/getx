@@ -14,7 +14,7 @@ class LanguageButton extends StatelessWidget {
       onPressed: onPressed,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10)),
-      color: AppColors.primary,
+      color:Get.theme.primaryColor,
       child: Text(buttontext,style: Get.theme.textTheme.subtitle1,),
     );
   }

@@ -23,7 +23,6 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(LoginController());
     return Scaffold(
-      backgroundColor: AppColors.back,
       appBar: AppBar(
         title: Text(
           'Login',

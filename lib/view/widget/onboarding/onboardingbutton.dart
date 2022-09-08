@@ -14,13 +14,13 @@ class OnBoardingButton extends GetView<OnBoardingController> {
           borderRadius: BorderRadius.circular(10)),
       padding:
       const EdgeInsets.symmetric(horizontal: 100, vertical: 15),
-      color: AppColors.primary,
+      color: Get.theme.primaryColor,
       onPressed: () {
         controller.next();
       },
       child:  Text(
         'continue'.tr,
-        style: const TextStyle(color: AppColors.back,fontFamily: 'Cairo'),
+        style:  TextStyle(color: Get.theme.backgroundColor,fontFamily: 'Cairo'),
       ),
     );
   }

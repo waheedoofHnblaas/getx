@@ -40,7 +40,7 @@ class VerifiyCodeSignUpController extends VerifiyCodeSignUpControllerVM {
           titleStyle: Get.textTheme.headline1,
           middleText: 'incorrect code',
           middleTextStyle: Get.textTheme.bodyText1,
-          backgroundColor: AppColors.back,
+          backgroundColor:  Get.theme.backgroundColor,
         );
         statusRequest = StatusRequest.failure;
       }

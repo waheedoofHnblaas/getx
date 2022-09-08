@@ -18,7 +18,7 @@ class AppBottomNav extends GetView<HomeController> {
           height: 58,
           margin: const EdgeInsets.symmetric(horizontal: 30),
           decoration: BoxDecoration(
-            border: Border.all(color: AppColors.primary, width: 0.5),
+            border: Border.all(color: Get.theme.primaryColor, width: 0.5),
             borderRadius: const BorderRadius.only(
               topRight: Radius.circular(33),
               topLeft: Radius.circular(33),
@@ -34,13 +34,13 @@ class AppBottomNav extends GetView<HomeController> {
               // controller: controller.scrollController,
               elevation: 0,
               iconSize: 21,
-              backgroundColor: AppColors.back,
+              backgroundColor: Get.theme.backgroundColor,
               selectedLabelStyle: const TextStyle(fontSize: 11),
               currentIndex: controller.currentPage,
               showUnselectedLabels: false,
               showSelectedLabels: true,
               selectedFontSize: 26,
-              selectedItemColor: AppColors.primary,
+              selectedItemColor:Get.theme.primaryColor,
               items: const [
                 BottomNavigationBarItem(
                     icon: Icon(

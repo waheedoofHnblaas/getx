@@ -16,9 +16,9 @@ class AppCategoriesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
-      decoration: const BoxDecoration(
-        color: AppColors.primaryShadow,
-        borderRadius: BorderRadius.all(Radius.circular(16))
+      decoration:  BoxDecoration(
+        color: Get.theme.shadowColor,
+        borderRadius: const BorderRadius.all(Radius.circular(16))
       ),
       height: Get.height * 0.16,
       child: ListView.builder(
@@ -42,7 +42,7 @@ class AppCategoriesWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(100),
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.primary.withOpacity(0.4),
+                          color: Get.theme.primaryColor.withOpacity(0.4),
                           spreadRadius: 1,
                           blurRadius: 3,
                           offset:
@@ -53,10 +53,10 @@ class AppCategoriesWidget extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 33,
                       // width: 77,
-                      backgroundColor: AppColors.primary.withOpacity(0.8),
+                      backgroundColor: Get.theme.primaryColor.withOpacity(0.8),
                       child: SvgPicture.network(
                         '${AppLinks.imageLink}${controller.categoriesController[index].categoriesImage!}',
-                        color: AppColors.back,
+                        color: Get.theme.backgroundColor,
                         width: Get.width * 0.1,
                         height: Get.width * 0.1,
                       ),

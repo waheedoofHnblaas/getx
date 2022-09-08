@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/home/personcontroller.dart';
+import 'package:getx/controller/themecontroller.dart';
 import 'package:getx/core/constant/colors.dart';
+import 'package:getx/core/constant/themes.dart';
 
-class SettingPage extends StatelessWidget {
+class SettingPage extends GetView<ThemeController> {
   SettingPage({Key? key}) : super(key: key);
 
   PersonController personController = Get.find();
   HomeController homeController = Get.find();
+  ThemeController themeController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -19,23 +22,23 @@ class SettingPage extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             padding: const EdgeInsets.all(20),
-            decoration: const BoxDecoration(
-                color: AppColors.primaryShadow,
-                borderRadius: BorderRadius.all(Radius.circular(16))),
+            decoration: BoxDecoration(
+                color: Get.theme.shadowColor,
+                borderRadius: const BorderRadius.all(Radius.circular(16))),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Icon(
+                Icon(
                   Icons.person,
                   size: 100,
-                  color: AppColors.primary,
+                  color: Get.theme.primaryColor,
                 ),
                 const SizedBox(
                   height: 55,
                 ),
                 Text(
                   personController.email!,
-                  style: Get.textTheme.bodyText2,
+                  style: Get.theme.textTheme.bodyText2,
                 ),
                 Text(
                   personController.phone!,
@@ -58,9 +61,9 @@ class SettingPage extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 20),
             padding: const EdgeInsets.all(10),
-            decoration: const BoxDecoration(
-                color: AppColors.primaryShadow,
-                borderRadius: BorderRadius.all(Radius.circular(16))),
+            decoration: BoxDecoration(
+                color: Get.theme.shadowColor,
+                borderRadius: const BorderRadius.all(Radius.circular(16))),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -69,9 +72,9 @@ class SettingPage extends StatelessWidget {
                     onPressed: () async {
                       await homeController.logout();
                     },
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.logout,
-                      color: AppColors.primary,
+                      color: Get.theme.primaryColor,
                       size: 33,
                     )),
                 const SizedBox(
@@ -80,9 +83,9 @@ class SettingPage extends StatelessWidget {
                 IconButton(
                     tooltip: 'edit',
                     onPressed: () {},
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.edit,
-                      color: AppColors.primary,
+                      color: Get.theme.primaryColor,
                       size: 33,
                     )),
                 const SizedBox(
@@ -90,10 +93,17 @@ class SettingPage extends StatelessWidget {
                 ),
                 IconButton(
                     tooltip: 'settings',
-                    onPressed: () {},
-                    icon: const Icon(
+                    onPressed: () {
+                      themeController.toggleDarkMode();
+                      print(themeController.isDarkMode);
+                      print(Get.isDarkMode);
+
+                      print(themeController.myServices.sharedPreferences
+                          .getString('themeData'));
+                    },
+                    icon: Icon(
                       Icons.sunny,
-                      color: AppColors.primary,
+                      color: Get.theme.primaryColor,
                       size: 33,
                     )),
               ],

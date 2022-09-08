@@ -54,7 +54,7 @@ class SignUpController extends SignUpControllerVM {
             titleStyle: Get.textTheme.headline1,
             middleText: 'user is existed',
             middleTextStyle: Get.textTheme.bodyText1,
-            backgroundColor: AppColors.back,
+            backgroundColor:  Get.theme.backgroundColor,
           );
           statusRequest = StatusRequest.failure;
         }

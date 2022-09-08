@@ -18,7 +18,6 @@ class CategoriesDataPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.back,
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {

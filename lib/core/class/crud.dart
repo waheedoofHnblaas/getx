@@ -12,7 +12,8 @@ class Crud {
         var response = await http.post(Uri.parse(urlLink), body: data);
         if (response.statusCode == 200 || response.statusCode == 201) {
           Map responceBody = jsonDecode(response.body);
-          print(responceBody);
+          print('==========responceBody.length================');
+          print(responceBody.length);
           print('==========Crud================');
           return Right(responceBody);
         } else {

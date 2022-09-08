@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/core/class/statusrequest.dart';
+import 'package:getx/core/constant/approutes.dart';
+import 'package:getx/core/constant/colors.dart';
 import 'package:getx/core/constant/imagesassets.dart';
+import 'package:getx/view/widget/apperror404widget.dart';
 import 'package:lottie/lottie.dart';
 
 class HandelingView extends StatelessWidget {
@@ -10,6 +15,7 @@ class HandelingView extends StatelessWidget {
   final StatusRequest statusRequest;
   Widget widget;
 
+  HomeController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     if (statusRequest == StatusRequest.loading) {
@@ -19,7 +25,7 @@ class HandelingView extends StatelessWidget {
     } else if (statusRequest == StatusRequest.failure) {
       return const Text('no data');
     } else {
-      return Lottie.asset(AppImagesAssets.error);
+      return AppEroor404Widget();
     }
   }
 }
@@ -42,7 +48,7 @@ class HandelingRequest extends StatelessWidget {
     // }
     else if (statusRequest == StatusRequest.serverExp ||
         statusRequest == StatusRequest.offline) {
-      return Center(child: Lottie.asset(AppImagesAssets.error));
+      return AppEroor404Widget();
     } else {
       return widget;
     }

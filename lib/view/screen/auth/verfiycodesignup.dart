@@ -22,7 +22,6 @@ class VerificationSignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(VerifiyCodeSignUpController());
     return Scaffold(
-      backgroundColor: AppColors.back,
       appBar: AppBar(
         title: Text(
           'Verification code',
@@ -49,14 +48,14 @@ class VerificationSignUpPage extends StatelessWidget {
                   height: 33,
                 ),
                 OtpTextField(
-                  focusedBorderColor: AppColors.primary,
+                  focusedBorderColor: Get.theme.primaryColor,
                   fieldWidth: 50,
                   margin: const EdgeInsets.all(8),
                   numberOfFields: 5,
                   borderRadius: BorderRadius.circular(10),
-                  borderColor: AppColors.primary,
+                  borderColor: Get.theme.primaryColor,
                   textStyle: Get.textTheme.headline1!.copyWith(
-                    color: AppColors.primary,
+                    color:Get.theme.primaryColor,
                   ),
                   //set to true to show as box or false to show as dash
                   showFieldAsBox: true,

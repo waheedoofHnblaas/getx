@@ -20,7 +20,6 @@ class ForgetPasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(ForgetController());
     return Scaffold(
-      backgroundColor: AppColors.back,
       appBar: AppBar(
         title: Text(
           'Forget password',

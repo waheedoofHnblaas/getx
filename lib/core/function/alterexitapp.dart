@@ -14,29 +14,31 @@ Future<bool> AlterExitApp() {
         MaterialButton(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          color: AppColors.primary,
+          color: Get.theme.primaryColor,
           onPressed: () {
             exit(0);
           },
           child: Text(
             '14'.tr,
-            style: Get.textTheme.headline1!.copyWith(fontSize: 16,color: AppColors.back),
+            style: Get.textTheme.headline1!
+                .copyWith(fontSize: 16, color: Get.theme.primaryColorDark),
           ),
         ),
         MaterialButton(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          color: AppColors.primary,
+          color: Get.theme.primaryColor,
           onPressed: () {
             Get.back();
           },
           child: Text(
             '15'.tr,
-            style: Get.textTheme.headline1!.copyWith(fontSize: 16,color: AppColors.back),
+            style: Get.textTheme.headline1!
+                .copyWith(fontSize: 16, color: Get.theme.primaryColorDark),
           ),
         ),
       ],
-      backgroundColor: AppColors.back);
+      backgroundColor: Get.theme.primaryColorDark);
 
   return Future.value(true);
 }

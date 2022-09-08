@@ -14,7 +14,6 @@ class OnBoarding extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(OnBoardingController());
     return Scaffold(
-      backgroundColor: AppColors.back,
       body: SafeArea(
         child: Column(
           children: [

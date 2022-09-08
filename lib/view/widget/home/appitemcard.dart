@@ -6,9 +6,10 @@ import 'package:getx/data/model/item.dart';
 import 'package:getx/view/widget/home/appcachiamge.dart';
 
 class ItemCard extends StatelessWidget {
-   ItemCard({required this.index,required this.items,Key? key}) : super(key: key);
+  ItemCard({required this.index, required this.items, Key? key})
+      : super(key: key);
 
-   List<ItemsModel> items;
+  List<ItemsModel> items;
   int index;
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class ItemCard extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(14),
-          color: AppColors.primary,
+          color: Get.theme.primaryColor,
         ),
         child: Column(
           children: [
@@ -32,9 +33,7 @@ class ItemCard extends StatelessWidget {
                   topRight: Radius.circular(14),
                   topLeft: Radius.circular(14),
                 ),
-                child: AppCachImage(
-                    imageUrl:
-                    items[index].itemsImage!),
+                child: AppCachImage(imageUrl: items[index].itemsImage!),
               ),
             ),
             Text(
@@ -64,8 +63,7 @@ class ItemCard extends StatelessWidget {
                     Text(
                       '${items[index].itemsDiscount!}  %',
                       textAlign: TextAlign.center,
-                      style:
-                      Get.textTheme.subtitle1!.copyWith(fontSize: 11),
+                      style: Get.textTheme.subtitle1!.copyWith(fontSize: 11),
                     ),
                   ],
                 ),

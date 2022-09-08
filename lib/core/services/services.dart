@@ -11,8 +11,8 @@ class MyServices extends GetxService {
 
   Future<MyServices> init() async {
     await Firebase.initializeApp();
-     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    systemNavigationBarColor: AppColors.back, // navigation bar color
+     SystemChrome.setSystemUIOverlayStyle( SystemUiOverlayStyle(
+    systemNavigationBarColor:  Get.theme.backgroundColor, // navigation bar color
     statusBarColor: Colors.transparent, 
   ));
     sharedPreferences = await SharedPreferences.getInstance();

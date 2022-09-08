@@ -6,7 +6,7 @@ import 'package:getx/core/constant/colors.dart';
 import 'package:getx/view/widget/home/personalicon.dart';
 
 class AppBarHomeWidget extends StatelessWidget {
-  AppBarHomeWidget({Key? key}) : super(key: key);
+  const AppBarHomeWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,9 @@ class AppBarHomeWidget extends StatelessWidget {
         child: Text(
           'Home',
           textAlign: TextAlign.center,
-          style: Get.textTheme.headline1!.copyWith(color: AppColors.primary),
+          style: Get.textTheme.headline1!.copyWith(
+            color: Get.theme.primaryColor,
+          ),
         ),
       ),
     );

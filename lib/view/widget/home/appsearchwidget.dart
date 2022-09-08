@@ -35,35 +35,35 @@ class AppSearchWidget extends StatelessWidget {
                   flex: 6,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: AppColors.primaryShadow,
+                      color: Get.theme.shadowColor,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: TextFormField(
                       cursorHeight: Get.height * 0.04,
                       keyboardAppearance: Brightness.dark,
-                      cursorColor: AppColors.primary,
+                      cursorColor: Get.theme.primaryColor,
                       textAlignVertical: TextAlignVertical.bottom,
                       textAlign: TextAlign.center,
                       validator: (v) {
                         return null;
                       },
                       keyboardType: TextInputType.name,
-                      style: const TextStyle(color: AppColors.primary),
+                      style:  TextStyle(color: Get.theme.primaryColor),
                       onChanged: (val) {},
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         prefixIcon: IconButton(
                           onPressed: () {},
-                          icon: const Icon(
+                          icon:  Icon(
                             CupertinoIcons.search,
-                            color: AppColors.primary,
+                            color: Get.theme.primaryColor,
                           ),
                         ),
                         label: const Center(
                           child: Text("Search"),
                         ),
                         labelStyle: Get.theme.textTheme.headline1!.copyWith(
-                          color: AppColors.gray.withOpacity(0.4),
+                          color: Get.theme.canvasColor.withOpacity(0.4),
                           fontSize: 18,
                         ),
                         floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -80,10 +80,10 @@ class AppSearchWidget extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: AppColors.primaryShadow,
+                      color: Get.theme.shadowColor,
                     ),
                     child: IconButton(
-                        color: AppColors.primary,
+                        color:Get.theme.primaryColor,
                         onPressed: () {},
                         icon: const Icon(Icons.filter_list)),
                   ),
