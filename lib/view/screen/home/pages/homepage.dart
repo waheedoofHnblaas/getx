@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/view/widget/home/appcardsummery.dart';
 import 'package:getx/view/widget/home/appcategorieswidget.dart';
-import 'package:getx/view/widget/home/appitemcardview.dart';
+import 'package:getx/view/widget/home/appitemsgridcardview.dart';
 import 'package:getx/view/widget/home/appsearchwidget.dart';
 
 class HomePage extends StatelessWidget {

@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/core/constant/colors.dart';
+import 'package:getx/core/services/services.dart';
 
 class AppThemes {
+  ThemeData getCurrentTheme() {
+    MyServices myServices = Get.find();
+    return myServices.sharedPreferences.getString('themeData') == 'dark'
+        ? AppThemes().getDarkTheme()
+        : AppThemes().getTheme();
+  }
+
   ThemeData getTheme() {
     return ThemeData(
       useMaterial3: true,

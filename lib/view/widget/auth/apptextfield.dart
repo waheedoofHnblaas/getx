@@ -27,23 +27,38 @@ class AppTextField extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
       child: TextFormField(
+        
         validator: validator,
         keyboardType: inputType,
         obscureText: obscureText,
-        style:  TextStyle(color: Get.theme.primaryColor),
+        style: TextStyle(color: Get.theme.primaryColor),
         decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Get.theme.primaryColor),
+            borderRadius: BorderRadius.circular(18),
+          ),
           hintStyle: Get.theme.textTheme.bodyText1,
-          suffixIcon: IconButton(onPressed: onTap, icon: Icon(iconData)),
+          suffixIcon: IconButton(
+            onPressed: onTap,
+            icon: Icon(
+              iconData,
+              color: Get.theme.primaryColor,
+            ),
+          ),
           label: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text('$type'),
+            child: Text(
+              type,
+              style: Get.textTheme.bodyText2!
+                  .copyWith(fontWeight: FontWeight.normal),
+            ),
           ),
           floatingLabelBehavior: FloatingLabelBehavior.always,
           hintText: 'inter your $type',
           contentPadding:
-              const EdgeInsets.symmetric(horizontal: 25, vertical: 12),
+              const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(22),
+            borderRadius: BorderRadius.circular(16),
           ),
         ),
         onChanged: onChanged,

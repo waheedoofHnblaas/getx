@@ -55,8 +55,9 @@ class ItemDataPage extends StatelessWidget {
                   AnimatedContainer(
                     duration: const Duration(milliseconds: 333),
                     decoration: BoxDecoration(
-                        color: Get.theme.backgroundColor,
-                        borderRadius: BorderRadius.all(Radius.circular(16))),
+                        color: Get.theme.shadowColor,
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(16))),
                     child: Padding(
                       padding: const EdgeInsets.all(3.0),
                       child: IconButton(
@@ -71,7 +72,7 @@ class ItemDataPage extends StatelessWidget {
                     margin:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 1),
                     decoration: BoxDecoration(
-                        color: Get.theme.backgroundColor,
+                        color: Get.theme.shadowColor,
                         borderRadius:
                             const BorderRadius.all(Radius.circular(16))),
                     child: Padding(
@@ -83,7 +84,7 @@ class ItemDataPage extends StatelessWidget {
                     margin:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 1),
                     decoration: BoxDecoration(
-                        color: Get.theme.backgroundColor,
+                        color: Get.theme.shadowColor,
                         borderRadius:
                             const BorderRadius.all(Radius.circular(16))),
                     child: Padding(
@@ -101,7 +102,7 @@ class ItemDataPage extends StatelessWidget {
                 height: Get.height * 0.2,
                 margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 1),
                 decoration: BoxDecoration(
-                    color: Get.theme.backgroundColor,
+                    color: Get.theme.shadowColor,
                     borderRadius: const BorderRadius.all(Radius.circular(16))),
                 child: Padding(
                   padding: const EdgeInsets.all(11.0),

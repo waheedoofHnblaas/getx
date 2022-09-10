@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/core/constant/colors.dart';
 import 'package:getx/view/widget/home/appcachiamge.dart';
-import 'package:getx/view/widget/home/appitemcard.dart';
+import 'package:getx/view/widget/itemsData/appitemcard.dart';
 
 class AppItemCardView extends StatelessWidget {
   AppItemCardView({Key? key}) : super(key: key);

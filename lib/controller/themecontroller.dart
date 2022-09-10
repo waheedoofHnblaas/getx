@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/core/constant/approutes.dart';
+import 'package:getx/core/constant/themes.dart';
 import 'package:getx/core/services/services.dart';
 
 class ThemeController extends GetxController {
@@ -21,12 +22,15 @@ class ThemeController extends GetxController {
   void toggleDarkMode() {
     isDarkMode = !isDarkMode;
     if (isDarkMode) {
+      Get.changeTheme(AppThemes().getDarkTheme());
       Get.changeThemeMode(ThemeMode.dark);
       myServices.sharedPreferences.setString('themeData', 'dark');
     } else {
+      Get.changeTheme(AppThemes().getTheme());
       Get.changeThemeMode(ThemeMode.light);
       myServices.sharedPreferences.setString('themeData', 'light');
     }
+  
     update();
   }
 }

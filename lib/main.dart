@@ -13,6 +13,7 @@ import 'package:get/get.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initServices();
+ // runApp(const MyApp());
   runApp(DevicePreview(
     builder: (context) => const MyApp(),
     enabled: true,

@@ -24,6 +24,7 @@ class ItemCard extends StatelessWidget {
           color: Get.theme.primaryColor,
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
               height: 190,

@@ -7,7 +7,7 @@ import 'package:getx/core/constant/colors.dart';
 import 'package:getx/view/widget/categoriesdataitems/appcategoriesitems.dart';
 import 'package:getx/view/widget/home/appbarhome.dart';
 import 'package:getx/view/widget/categoriesdataitems/appcategoriesitems.dart';
-import 'package:getx/view/widget/home/appitemcardview.dart';
+import 'package:getx/view/widget/home/appitemsgridcardview.dart';
 import 'package:getx/view/widget/home/appsearchwidget.dart';
 
 class CategoriesDataPage extends StatelessWidget {

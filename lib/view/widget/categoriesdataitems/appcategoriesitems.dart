@@ -4,7 +4,7 @@ import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/core/constant/colors.dart';
 import 'package:getx/view/widget/auth/applogintext.dart';
 import 'package:getx/view/widget/home/appcachiamge.dart';
-import 'package:getx/view/widget/home/appitemcard.dart';
+import 'package:getx/view/widget/itemsData/appitemcard.dart';
 
 class AppCategoriesItems extends StatelessWidget {
   AppCategoriesItems({Key? key}) : super(key: key);
