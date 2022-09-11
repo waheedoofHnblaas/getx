@@ -15,7 +15,6 @@ import 'view/screen/auth/forgetpassword/resetpassword.dart';
 import 'view/screen/auth/forgetpassword/verfiycode.dart';
 import 'view/screen/categoriesdataitems/categoriesdatapage.dart';
 import 'view/screen/home/home.dart';
-import 'view/testview.dart';
 
 List<GetPage<dynamic>>? routes = [
   // GetPage(

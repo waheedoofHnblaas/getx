@@ -2,16 +2,14 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/core/class/crud.dart';
 import 'package:getx/core/class/statusrequest.dart';
 import 'package:getx/core/constant/approutes.dart';
-import 'package:getx/core/constant/colors.dart';
 import 'package:getx/core/function/handlingdata.dart';
 import 'package:getx/core/services/services.dart';
 import 'package:getx/data/datasource/remote/home/homeData.dart';
 import 'package:getx/data/model/categories.dart';
 import 'package:getx/data/model/item.dart';
-import 'package:getx/view/screen/itemsdata/itemdata.dart';
+import 'package:get/get.dart';
 
 abstract class HomeControllerImp extends GetxController {
   changePage(int i);
@@ -22,6 +20,7 @@ abstract class HomeControllerImp extends GetxController {
 
   getCategoriesItems(String id);
 
+  void getSummerDiscount();
   // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
   goToItemDataPage(ItemsModel);
   goToCategoriesPage(String id, String name);
@@ -37,11 +36,12 @@ class HomeController extends HomeControllerImp {
   List<ItemsModel> categoriesItemsController = [];
   int currentPage = 0;
 
+  ItemsModel discountItemsModel = ItemsModel(itemsDiscount: '0');
   final offset = 0.0.obs;
 
   @override
   void onInit() {
-    getHomeData();
+    getSummerDiscount();
     scrollController.addListener(() {
       offset.value = scrollController.offset;
       print(offset.value.toString());
@@ -51,15 +51,32 @@ class HomeController extends HomeControllerImp {
   }
 
   @override
+  // ignore: avoid_renaming_method_parameters
   changePage(pageIndex) {
     currentPage = pageIndex;
+    // ignore: avoid_print
     print(currentPage);
     print('HomeController currentPage');
     update();
   }
 
   @override
-  getHomeData() async {
+  void getSummerDiscount() async {
+    itemsController = await getHomeData();
+    print('element.itemsDiscount=====');
+    for (ItemsModel element in itemsController) {
+      if (int.parse(discountItemsModel.itemsDiscount!) <
+          int.parse(element.itemsDiscount!)) {
+        print(element.itemsDiscount);
+        print(itemsController.length);
+        discountItemsModel = element;
+      }
+    }
+    update();
+  }
+
+  @override
+  Future<List<ItemsModel>> getHomeData() async {
     statusRequest = StatusRequest.loading;
     update();
     print('getHomeData');
@@ -83,12 +100,13 @@ class HomeController extends HomeControllerImp {
           titleStyle: Get.textTheme.headline1,
           middleText: 'no data available',
           middleTextStyle: Get.textTheme.bodyText1,
-          backgroundColor:  Get.theme.backgroundColor,
+          backgroundColor: Get.theme.backgroundColor,
         );
         statusRequest = StatusRequest.failure;
       }
     }
     update();
+    return itemsController;
   }
 
   void onTap(int i) {
@@ -100,8 +118,19 @@ class HomeController extends HomeControllerImp {
   @override
   logout() async {
     try {
-      await myServices.sharedPreferences.setString('step', '1');
-      Get.offAllNamed(AppRoute.login);
+      Get.defaultDialog(
+        title: 'Logout',
+        titleStyle: Get.textTheme.headline1,
+        middleText: 'Do you want to logout ?',
+        backgroundColor: Get.theme.backgroundColor,
+        onConfirm: () async {
+          await myServices.sharedPreferences.setString('step', '1');
+          Get.offAllNamed(AppRoute.login);
+        },
+        onCancel: () {
+          Get.back();
+        },
+      );
     } catch (_) {
       Get.offAllNamed(AppRoute.home);
     }

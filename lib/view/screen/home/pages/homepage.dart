@@ -4,7 +4,7 @@ import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/view/widget/home/appcardsummery.dart';
 import 'package:getx/view/widget/home/appcategorieswidget.dart';
 import 'package:getx/view/widget/home/appitemsgridcardview.dart';
-import 'package:getx/view/widget/home/appsearchwidget.dart';
+import 'package:getx/view/widget/home/search/appsearchwidget.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -20,12 +20,31 @@ class HomePage extends StatelessWidget {
         SliverList(
           delegate: SliverChildListDelegate([
             const SizedBox(
-              height: 8,
+              height: 10,
             ),
-            const AppCardSummery(),
-            AppCategoriesWidget(),
+            AppCardSummery(),
             const SizedBox(
-              height: 8,
+              height: 10,
+            ),
+            Text(
+              'Categories',
+              style: Get.textTheme.headline1,
+            ),
+            Container(
+              height: 0.5,
+              color: Get.theme.primaryColor,
+            ),
+            AppCategoriesWidget(),
+            Text(
+              'Products',
+              style: Get.textTheme.headline1,
+            ),
+            Container(
+              height: 0.5,
+              color: Get.theme.primaryColor,
+            ),
+            const SizedBox(
+              height: 10,
             ),
           ]),
         ),

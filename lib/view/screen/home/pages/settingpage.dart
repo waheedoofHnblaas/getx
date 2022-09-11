@@ -61,7 +61,7 @@ class SettingPage extends GetView<ThemeController> {
                       },
                       icon: Icon(
                         Icons.sunny,
-                        color:AppThemes().getCurrentTheme().primaryColor,
+                        color: AppThemes().getCurrentTheme().primaryColor,
                         size: 33,
                       )),
                 ],

@@ -21,7 +21,7 @@ class Home extends StatelessWidget {
         title: const AppBarHomeWidget(),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 8),
         child: GetBuilder<HomeController>(
           builder: (controller) => HandelingView(
               statusRequest: controller.statusRequest!,

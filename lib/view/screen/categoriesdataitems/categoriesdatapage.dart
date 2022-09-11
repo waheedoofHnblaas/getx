@@ -8,7 +8,7 @@ import 'package:getx/view/widget/categoriesdataitems/appcategoriesitems.dart';
 import 'package:getx/view/widget/home/appbarhome.dart';
 import 'package:getx/view/widget/categoriesdataitems/appcategoriesitems.dart';
 import 'package:getx/view/widget/home/appitemsgridcardview.dart';
-import 'package:getx/view/widget/home/appsearchwidget.dart';
+import 'package:getx/view/widget/home/search/appsearchwidget.dart';
 
 class CategoriesDataPage extends StatelessWidget {
   CategoriesDataPage({Key? key}) : super(key: key);
