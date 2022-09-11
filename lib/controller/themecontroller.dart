@@ -1,7 +1,8 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/core/constant/approutes.dart';
-import 'package:getx/core/constant/themes.dart';
+import 'package:getx/core/constant/themesdata/themes.dart';
 import 'package:getx/core/services/services.dart';
 
 class ThemeController extends GetxController {
@@ -19,18 +20,23 @@ class ThemeController extends GetxController {
     super.onInit();
   }
 
-  void toggleDarkMode() {
+  void toggleDarkMode(BuildContext context) {
     isDarkMode = !isDarkMode;
+
     if (isDarkMode) {
-      Get.changeTheme(AppThemes().getDarkTheme());
+      ThemeSwitcher.of(context).changeTheme(
+        theme: AppThemes().getDarkTheme(), isReversed: true, // default: false
+      );
       Get.changeThemeMode(ThemeMode.dark);
       myServices.sharedPreferences.setString('themeData', 'dark');
     } else {
-      Get.changeTheme(AppThemes().getTheme());
+      ThemeSwitcher.of(context).changeTheme(
+        theme: AppThemes().getTheme(), isReversed: false, // default: false
+      );
       Get.changeThemeMode(ThemeMode.light);
       myServices.sharedPreferences.setString('themeData', 'light');
     }
-  
+
     update();
   }
 }

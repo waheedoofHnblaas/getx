@@ -1,26 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/view/widget/home/search/darasearch.dart';
+import 'package:getx/controller/home/searchcontroller.dart';
+import 'package:getx/view/widget/home/search/datasearch.dart';
 
 class AppSearchWidget extends StatelessWidget {
   const AppSearchWidget({Key? key}) : super(key: key);
 
-  onBack(context) {
-    var currentFocus = FocusScope.of(context);
-    if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
-      currentFocus.focusedChild!.unfocus();
-      return false;
-    } else {
-      return true;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
+    SearchController searchController = Get.put(SearchController());
+    return GetBuilder<SearchController>(
+      builder: (searchController) => WillPopScope(
         onWillPop: () async {
-          return onBack(context);
+          return searchController.onBack(context);
         },
         child: SliverAppBar(
           automaticallyImplyLeading: false,
@@ -39,7 +32,10 @@ class AppSearchWidget extends StatelessWidget {
                     ),
                     child: IconButton(
                       onPressed: () {
-                        showSearch(context: context, delegate: DataSearch());
+                        showSearch(
+                          context: context,
+                          delegate: DataSearch(),
+                        );
                       },
                       icon: Icon(
                         CupertinoIcons.search,
@@ -75,6 +71,8 @@ class AppSearchWidget extends StatelessWidget {
               ],
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

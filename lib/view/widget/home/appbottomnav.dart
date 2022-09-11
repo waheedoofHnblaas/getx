@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/themecontroller.dart';
 import 'package:getx/core/constant/colors.dart';
-import 'package:getx/core/constant/themes.dart';
+import 'package:getx/core/constant/themesdata/themes.dart';
 
 class AppBottomNav extends GetView<ThemeController> {
   AppBottomNav({Key? key}) : super(key: key);
@@ -35,7 +35,7 @@ class AppBottomNav extends GetView<ThemeController> {
                 topLeft: Radius.circular(33),
               ),
               child: BottomNavigationBar(
-                onTap: (value) => controller.onTap(value),
+                onTap: (value) => controller.changePage(value),
                 // controller: controller.scrollController,
                 elevation: 0,
                 iconSize: 21,

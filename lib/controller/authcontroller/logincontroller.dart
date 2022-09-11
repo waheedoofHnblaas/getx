@@ -92,7 +92,6 @@ class LoginController extends LoginControllerVM {
     FirebaseMessaging.instance.getToken().then((value) {
       print('FirebaseMessaging.instance.getToken');
       print(value);
-      String? token = value;
     });
     email = TextEditingController();
     password = TextEditingController();

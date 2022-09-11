@@ -37,7 +37,7 @@ class CategoriesDataPage extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 20),
               child: CustomScrollView(
                   slivers: [
-                    const AppSearchWidget(),
+                     const AppSearchWidget(),
                     AppCategoriesItems(),
                   ]),
             )),

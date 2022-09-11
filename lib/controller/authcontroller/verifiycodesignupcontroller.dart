@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:getx/core/class/statusrequest.dart';
 import 'package:getx/core/constant/approutes.dart';
-import 'package:getx/core/constant/colors.dart';
 import 'package:getx/core/function/handlingdata.dart';
 import 'package:getx/data/datasource/remote/auth/verifiydata.dart';
 
@@ -23,7 +22,8 @@ class VerifiyCodeSignUpController extends VerifiyCodeSignUpControllerVM {
   checSignUpkCode() async {
     statusRequest = StatusRequest.loading;
     update();
-    print('verified email : ${email}  with code : ${code.text}');
+    // ignore: avoid_print
+    print('verified email : $email  with code : ${code.text}');
 
     var response = await verifiyData.verifiySignUpData(
         email: email, verifiyCode: code.text

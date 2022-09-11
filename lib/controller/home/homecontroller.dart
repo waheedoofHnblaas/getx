@@ -13,7 +13,7 @@ import 'package:get/get.dart';
 
 abstract class HomeControllerImp extends GetxController {
   changePage(int i);
-
+  onPageChanged(int i);
   logout();
 
   getHomeData();
@@ -50,13 +50,24 @@ class HomeController extends HomeControllerImp {
     super.onInit();
   }
 
+  PageController pageController = PageController();
+
   @override
   // ignore: avoid_renaming_method_parameters
   changePage(pageIndex) {
     currentPage = pageIndex;
+    pageController.jumpToPage(currentPage);
     // ignore: avoid_print
     print(currentPage);
+    // ignore: avoid_print
     print('HomeController currentPage');
+    update();
+  }
+
+  @override
+  // ignore: avoid_renaming_method_parameters
+  onPageChanged(index) {
+    currentPage = index;
     update();
   }
 
@@ -109,12 +120,6 @@ class HomeController extends HomeControllerImp {
     return itemsController;
   }
 
-  void onTap(int i) {
-    print('ScrollBottomNavigationBar $i');
-    print('ScrollBottomNavigationBar ');
-    changePage(i);
-  }
-
   @override
   logout() async {
     try {
@@ -161,6 +166,7 @@ class HomeController extends HomeControllerImp {
   }
 
   @override
+  // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
   goToItemDataPage(ItemsModel) {
     Get.toNamed(AppRoute.itemdata, arguments: {'item': ItemsModel});
   }

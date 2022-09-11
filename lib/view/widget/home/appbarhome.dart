@@ -4,7 +4,7 @@ import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/home/personcontroller.dart';
 import 'package:getx/controller/themecontroller.dart';
 import 'package:getx/core/constant/colors.dart';
-import 'package:getx/core/constant/themes.dart';
+import 'package:getx/core/constant/themesdata/themes.dart';
 import 'package:getx/view/widget/home/personalicon.dart';
 
 class AppBarHomeWidget extends StatelessWidget {

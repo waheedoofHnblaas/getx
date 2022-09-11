@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/home/personcontroller.dart';
 import 'package:getx/controller/themecontroller.dart';
-import 'package:getx/core/constant/themes.dart';
+import 'package:getx/core/constant/themesdata/themes.dart';
 
 class AppSettingInfoWidget extends StatelessWidget {
   const AppSettingInfoWidget({Key? key}) : super(key: key);

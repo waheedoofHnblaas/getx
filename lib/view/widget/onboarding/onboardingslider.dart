@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/controller/onboardingcontoller.dart';
 import 'package:getx/core/constant/colors.dart';
-import 'package:getx/data/datasource/static/static.dart';
+import 'package:getx/data/datasource/static/onboardinglist.dart';
 
 class OnBoardingSlider extends StatelessWidget {
   const OnBoardingSlider({Key? key}) : super(key: key);

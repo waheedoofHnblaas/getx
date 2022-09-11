@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:getx/core/class/statusrequest.dart';
 import 'package:getx/core/constant/approutes.dart';
-import 'package:getx/core/constant/colors.dart';
 import 'package:getx/core/function/handlingdata.dart';
 import 'package:getx/data/datasource/remote/auth/signup.dart';
 

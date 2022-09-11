@@ -23,14 +23,13 @@ class AppCachImage extends StatelessWidget {
       fit: BoxFit.fill,
       imageUrl: imageUrl,
       progressIndicatorBuilder: (context, url, downloadProgress) => Container(
-        width: 10,
-        height: 10,
-        margin: const EdgeInsets.all(20),
+        width: 20,
+        height: 5,
+        padding: const EdgeInsets.symmetric(vertical: 50),
         child: CircularProgressIndicator(
-          value: downloadProgress.progress,
-          color: Get.theme.secondaryHeaderColor,
-          backgroundColor: Get.theme.primaryColor
-        ),
+            value: downloadProgress.progress,
+            color: Get.theme.secondaryHeaderColor,
+            backgroundColor: Get.theme.primaryColor),
       ),
       errorWidget: (context, url, error) => const Icon(Icons.error),
     );

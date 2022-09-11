@@ -10,7 +10,6 @@ class PersonController extends GetxController{
     initialUserData();
     super.onInit();
   }
-  @override
   initialUserData() async{
     id = myServices.sharedPreferences.getString('id');
     email = myServices.sharedPreferences.getString('email');
