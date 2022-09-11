@@ -11,7 +11,7 @@ import 'package:getx/view/widget/home/settingpage/settingrow.dart';
 import 'package:path/path.dart';
 
 class SettingPage extends GetView<ThemeController> {
-  SettingPage({Key? key}) : super(key: key);
+  SettingPage({key}) : super(key: key);
 
   PersonController personController = Get.find();
   HomeController homeController = Get.find();

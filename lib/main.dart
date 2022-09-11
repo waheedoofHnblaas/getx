@@ -1,6 +1,5 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:getx/controller/themecontroller.dart';
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:getx/core/constant/themesdata/themes.dart';
 import 'package:getx/core/localization/changelocal.dart';
