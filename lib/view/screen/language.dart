@@ -1,3 +1,4 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/core/constant/approutes.dart';
@@ -14,23 +15,32 @@ class LanguagePage extends GetView<MyLocalController> {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-
-          children: [
-            Text('choose language'.tr,style: Get.theme.textTheme.headline1,),
-            const SizedBox(height: 22,),
-            LanguageButton(buttontext: 'العربية',onPressed:  (){
-              controller.changeLang('ar');
-              Get.toNamed(AppRoute.onboarding);
-            }),
-            const SizedBox(height: 11,),
-            LanguageButton(buttontext: 'English',onPressed:  (){
-              controller.changeLang('en');
-              Get.toNamed(AppRoute.onboarding);
-            }),
-
-          ],
-        ),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'choose language'.tr,
+                style: Get.theme.textTheme.headline1,
+              ),
+              const SizedBox(
+                height: 22,
+              ),
+              LanguageButton(
+                  buttontext: 'العربية',
+                  onPressed: () {
+                    controller.changeLang('ar');
+                    Get.toNamed(AppRoute.onboarding);
+                  }),
+              const SizedBox(
+                height: 11,
+              ),
+              LanguageButton(
+                  buttontext: 'English',
+                  onPressed: () {
+                    controller.changeLang('en');
+                    Get.toNamed(AppRoute.onboarding);
+                  }),
+            ],
+          ),
       ),
     );
   }

@@ -1,8 +1,8 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/core/function/checkinternet.dart';
+import 'package:getx/core/constant/themesdata/themes.dart';
 import 'package:getx/core/services/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class MyLocalController extends GetxController {
   Locale? language;
@@ -11,13 +11,22 @@ class MyLocalController extends GetxController {
   changeLang(String languagecode) {
     Locale locale = Locale(languagecode);
     myServices.sharedPreferences.setString('lang', languagecode);
+    language = Locale(languagecode);
     Get.updateLocale(locale);
+
+    print(Get.locale);
+    update();
   }
 
-
+  switchLang() {
+    // ignore: unrelated_type_equality_checks
+    myServices.sharedPreferences.getString('lang') == 'ar'
+        ? changeLang('en')
+        : changeLang('ar');
+  }
 
   @override
-  void onInit() async{
+  void onInit() async {
     String? languagecode = myServices.sharedPreferences.getString('lang');
     if (languagecode == 'ar') {
       language = const Locale('ar');

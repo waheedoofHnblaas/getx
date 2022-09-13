@@ -1,3 +1,4 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/controller/onboardingcontoller.dart';
@@ -13,29 +14,31 @@ class OnBoarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(OnBoardingController());
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            const Expanded(
-              flex: 4,
-              child: OnBoardingPageView(),
-            ),
-            Expanded(
-                flex: 1,
-                child: Column(
-                  children: const [
-                     OnBoardingSlider(),
-                     Spacer(
-                      flex: 2,
-                    ),
-                    OnBoardingButton(),
-                     Spacer(
-                      flex: 1,
-                    ),
-                  ],
-                ))
-          ],
+    return ThemeSwitchingArea(
+      child: Scaffold(
+        body: SafeArea(
+          child: Column(
+            children: [
+              const Expanded(
+                flex: 4,
+                child: OnBoardingPageView(),
+              ),
+              Expanded(
+                  flex: 1,
+                  child: Column(
+                    children: const [
+                      OnBoardingSlider(),
+                      Spacer(
+                        flex: 2,
+                      ),
+                      OnBoardingButton(),
+                      Spacer(
+                        flex: 1,
+                      ),
+                    ],
+                  ))
+            ],
+          ),
         ),
       ),
     );

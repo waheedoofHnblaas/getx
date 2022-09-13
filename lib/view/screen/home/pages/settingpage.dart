@@ -23,16 +23,11 @@ class SettingPage extends GetView<ThemeController> {
         return Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            // ignore: prefer_const_literals_to_create_immutables
             children: [
               const AppSettingInfoWidget(),
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 20),
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                    color: AppThemes().getCurrentTheme().shadowColor,
-                    borderRadius: const BorderRadius.all(Radius.circular(16))),
-                child: const SettingRowWidget(),
-              ),
+               const SettingRowWidget(),
+              
               const SizedBox(
                 width: 80,
               ),

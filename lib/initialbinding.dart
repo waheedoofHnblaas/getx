@@ -4,14 +4,11 @@ import 'package:getx/controller/home/personcontroller.dart';
 import 'package:getx/controller/themecontroller.dart';
 import 'package:getx/core/class/crud.dart';
 
-class InitialBinding extends Bindings{
+class InitialBinding extends Bindings {
   @override
   void dependencies() {
     Get.put(Crud());
-    Get.put(HomeController(),permanent: true);
-    Get.put(PersonController(),permanent: true);
-    Get.put(ThemeController(),permanent: true,);
-
+    Get.put(PersonController());
+    Get.put(ThemeController());
   }
-
 }

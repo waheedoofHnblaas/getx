@@ -14,28 +14,29 @@ void main() async {
   await initServices();
   // runApp(const MyApp());
   runApp(DevicePreview(
-    builder: (context) => const MyApp(),
+    builder: (context) => MyApp(),
     enabled: true,
   ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    MyLocalController localcontroller = Get.put(MyLocalController());
+    MyLocalController localcontroller =
+        Get.put(MyLocalController(), permanent: true);
     return ThemeProvider(
       initTheme: AppThemes().getCurrentTheme(),
-      builder: (_, theme) => GetMaterialApp(
+      builder: (p0, theme) => GetMaterialApp(
         locale: localcontroller.language,
         translations: MyTranslations(),
         getPages: routes,
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Flutter Ecommerce App',
         theme: theme,
-        darkTheme: theme,
+        darkTheme: AppThemes().getCurrentTheme(),
         themeMode: AppThemes().getCurrentThemeMode(),
         initialBinding: InitialBinding(),
       ),

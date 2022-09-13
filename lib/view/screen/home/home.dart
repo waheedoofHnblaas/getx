@@ -13,6 +13,7 @@ class Home extends StatelessWidget {
 
   PersonController personController = Get.find();
 
+   HomeController controller =  Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
     return ThemeSwitchingArea(
