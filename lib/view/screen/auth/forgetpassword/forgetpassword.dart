@@ -50,11 +50,12 @@ class ForgetPasswordPage extends StatelessWidget {
                       height: 33,
                     ),
                     AppTextField(
+                      textFieldController: controller.email,
                       validator: (val) {
                         controller.email = TextEditingController(text: val);
                         return validInput(val!, 8, 50, 'email');
                       },
-                     // controller: controller.email,
+                      // controller: controller.email,
                       type: 'Email',
                       iconData: Icons.email_outlined,
                       inputType: TextInputType.emailAddress,

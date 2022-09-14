@@ -32,7 +32,6 @@ class HomeController extends HomeControllerImp {
   final HomeData homeData = HomeData(Get.find());
   List<CategoriesModel> categoriesController = [];
   List<ItemsModel> itemsController = [];
-  ScrollController scrollController = ScrollController();
   List<ItemsModel> categoriesItemsController = [];
   int currentPage = 0;
 
@@ -42,11 +41,7 @@ class HomeController extends HomeControllerImp {
   @override
   void onInit() {
     getSummerDiscount();
-    scrollController.addListener(() {
-      offset.value = scrollController.offset;
-      print(offset.value.toString());
-      update();
-    });
+   
     super.onInit();
   }
 

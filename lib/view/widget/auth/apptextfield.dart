@@ -12,25 +12,27 @@ class AppTextField extends StatelessWidget {
     required this.validator,
     this.obscureText = false,
     this.onTap,
+    required this.textFieldController,
   }) : super(key: key);
 
   late String type;
   late bool obscureText;
   late IconData iconData;
   late TextInputType inputType;
-  late void Function(String)? onChanged;
+  late String? Function(String?)? onChanged;
   late String? Function(String?)? validator;
   final void Function()? onTap;
-
+  late TextEditingController textFieldController;
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
       child: TextFormField(
-        
+        controller: textFieldController,
         validator: validator,
         keyboardType: inputType,
         obscureText: obscureText,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         style: TextStyle(color: Get.theme.primaryColor),
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(

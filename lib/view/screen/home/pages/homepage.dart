@@ -14,7 +14,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      controller: controller.scrollController,
       slivers: [
         const AppSearchWidget(),
         SliverList(

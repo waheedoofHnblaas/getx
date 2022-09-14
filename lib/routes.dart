@@ -32,12 +32,10 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.forget, page: () => const ForgetPasswordPage()),
   GetPage(name: AppRoute.verfiy, page: () => const VerificationPage()),
   GetPage(name: AppRoute.home, page: () => Home()),
-  GetPage(
-      name: AppRoute.verfiysignup, page: () => const VerificationSignUpPage()),
+  GetPage(name: AppRoute.verfiysignup, page: () => const VerificationSignUpPage()),
   GetPage(name: AppRoute.resetpassword, page: () => const ResetPasswordPage()),
   GetPage(
-      name: AppRoute.successresetpassword,
-      page: () => const SuccessResetPage()),
+      name: AppRoute.successresetpassword,page: () => const SuccessResetPage()),
   GetPage(name: AppRoute.successSignup, page: () => const SuccessSignUpPage()),
   GetPage(
     name: AppRoute.categoriesdata,
@@ -47,7 +45,7 @@ List<GetPage<dynamic>>? routes = [
   ),
   GetPage(
     name: AppRoute.itemdata,
-    page: () => ItemDataPage(),
+    page: () => const ItemDataPage(),
     transition: Transition.downToUp,
     transitionDuration: const Duration(milliseconds: 333),
   ),

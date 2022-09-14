@@ -13,9 +13,9 @@ class AppSettingInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     PersonController personController = Get.find();
-    return GetBuilder<ThemeController>(
-      builder: (controller) {
-        print(controller.isDarkMode);
+    return GetBuilder<PersonController>(
+      builder: (personController) {
+        print(AppThemes().getCurrentThemeMode());
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
           padding: const EdgeInsets.all(20),

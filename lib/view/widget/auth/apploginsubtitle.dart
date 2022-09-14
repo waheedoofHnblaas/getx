@@ -7,10 +7,13 @@ class AppLoginSubTitle extends StatelessWidget {
   final String subtitle;
   @override
   Widget build(BuildContext context) {
-    return Text(
-      subtitle,
-      textAlign: TextAlign.center,
-      style: Get.theme.textTheme.bodyText1,
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 35),
+      child: Text(
+        subtitle,
+        textAlign: TextAlign.center,
+        style: Get.theme.textTheme.bodyText1,
+      ),
     );
   }
 }

@@ -10,5 +10,7 @@ class InitialBinding extends Bindings {
     Get.put(Crud());
     Get.put(PersonController());
     Get.put(ThemeController());
+
+    Get.put(GetMaterialController(), permanent: true);
   }
 }

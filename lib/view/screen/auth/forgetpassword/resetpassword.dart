@@ -49,6 +49,7 @@ class ResetPasswordPage extends StatelessWidget {
                     height: 33,
                   ),
                   AppTextField(
+                    textFieldController: controller.password,
                     validator: (val) {
                       controller.password = TextEditingController(text: val);
                       return validInput(val!, 8, 50, 'password');

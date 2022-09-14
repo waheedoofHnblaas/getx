@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/controller/authcontroller/signupcontroller.dart';
-import 'package:getx/core/class/handelingview.dart';
 import 'package:getx/core/class/statusrequest.dart';
 import 'package:getx/core/constant/approutes.dart';
-import 'package:getx/core/constant/colors.dart';
 import 'package:getx/core/constant/imagesassets.dart';
 import 'package:getx/core/function/alterexitapp.dart';
 import 'package:getx/core/function/validinput.dart';
@@ -20,7 +18,6 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     Get.put(SignUpController());
     return Scaffold(
       appBar: AppBar(
@@ -32,60 +29,62 @@ class SignUpPage extends StatelessWidget {
       body: WillPopScope(
         onWillPop: AlterExitApp,
         child: GetBuilder<SignUpController>(builder: (controller) {
-          if(controller.statusRequest==StatusRequest.loading){
+          if (controller.statusRequest == StatusRequest.loading) {
             return Center(child: Lottie.asset(AppImagesAssets.loading));
-          }else{
+          } else {
             return Center(
                 child: SingleChildScrollView(
-                  child: Form(
-                    key: controller.formState,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const AppLoginTitel(title: 'Welcome Back'),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        const AppLoginSubTitle(
-                          subtitle:
-                          'Sign Up with your Details or\nBy social media',
-                        ),
-                        const SizedBox(
-                          height: 33,
-                        ),
-                        AppTextField(
-                          validator: (val) {
-                            controller.username =
-                                TextEditingController(text: val);
-                            return validInput(val!, 8, 50, 'username');
-                          },
-                          type: 'User Name',
-                          iconData: Icons.person_outline,
-                          inputType: TextInputType.name,
-                          onChanged: (val) {},
-                        ),
-                        AppTextField(
-                          validator: (val) {
-                            controller.email = TextEditingController(text: val);
-                            return validInput(val!, 8, 50, 'email');
-                          },
-                          type: 'Email',
-                          iconData: Icons.email_outlined,
-                          inputType: TextInputType.emailAddress,
-                          onChanged: (val) {},
-                        ),
-                        AppTextField(
-                          validator: (val) {
-                            controller.phone = TextEditingController(text: val);
-                            return validInput(val!, 8, 50, 'phone');
-                          },
-                          type: 'Phone',
-                          iconData: Icons.phone_outlined,
-                          inputType: TextInputType.number,
-                          onChanged: (val) {},
-                        ),
-                        GetBuilder<SignUpController>(
-                            builder: (controller) => AppTextField(
+              child: Form(
+                key: controller.formState,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const AppLoginTitel(title: 'Welcome Back'),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    const AppLoginSubTitle(
+                      subtitle: 'Sign Up with your Details or\nBy social media',
+                    ),
+                    const SizedBox(
+                      height: 33,
+                    ),
+                    AppTextField(
+                      textFieldController: controller.username,
+                      validator: (val) {
+                        controller.username = TextEditingController(text: val);
+                        return validInput(val!, 8, 50, 'username');
+                      },
+                      type: 'User Name',
+                      iconData: Icons.person_outline,
+                      inputType: TextInputType.name,
+                      onChanged: (val) {},
+                    ),
+                    AppTextField(
+                      textFieldController: controller.email,
+                      validator: (val) {
+                        controller.email = TextEditingController(text: val);
+                        return validInput(val!, 8, 50, 'email');
+                      },
+                      type: 'Email',
+                      iconData: Icons.email_outlined,
+                      inputType: TextInputType.emailAddress,
+                      onChanged: (val) {},
+                    ),
+                    AppTextField(
+                      textFieldController: controller.phone,
+                      validator: (val) {
+                        controller.phone = TextEditingController(text: val);
+                        return validInput(val!, 8, 50, 'phone');
+                      },
+                      type: 'Phone',
+                      iconData: Icons.phone_outlined,
+                      inputType: TextInputType.number,
+                      onChanged: (val) {},
+                    ),
+                    GetBuilder<SignUpController>(
+                        builder: (controller) => AppTextField(
+                              textFieldController: controller.password,
                               obscureText: controller.showText,
                               onTap: () {
                                 controller.changeShow();
@@ -100,30 +99,29 @@ class SignUpPage extends StatelessWidget {
                               inputType: TextInputType.visiblePassword,
                               onChanged: (val) {},
                             )),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        AppSignUpAndLoginButton(
-                            text: 'Sign Up',
-                            onPressed: () {
-                              controller.signup();
-                            }),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        AppLoginSignUp(
-                          textone: 'You have account ? ',
-                          texttwo: 'Login',
-                          onPressed: () {
-                            Get.offNamed(AppRoute.login);
-                          },
-                        )
-                      ],
+                    const SizedBox(
+                      height: 10,
                     ),
-                  ),
-                ));
+                    AppSignUpAndLoginButton(
+                        text: 'Sign Up',
+                        onPressed: () {
+                          controller.signup();
+                        }),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    AppLoginSignUp(
+                      textone: 'You have account ? ',
+                      texttwo: 'Login',
+                      onPressed: () {
+                        Get.offNamed(AppRoute.login);
+                      },
+                    )
+                  ],
+                ),
+              ),
+            ));
           }
-
         }),
       ),
     );

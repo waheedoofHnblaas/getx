@@ -21,7 +21,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(LoginController());
+    Get.lazyPut(() => LoginController(), fenix: true);
+    
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -55,11 +56,12 @@ class LoginPage extends StatelessWidget {
                           height: 33,
                         ),
                         AppTextField(
+                          textFieldController:controller.email,
                           validator: (val) {
                             controller.email = TextEditingController(text: val);
                             return validInput(val!, 10, 50, 'email');
                           },
-                         // controller: controller.email,
+                          // controller: controller.email,
                           type: 'Email',
                           iconData: Icons.email_outlined,
                           inputType: TextInputType.emailAddress,
@@ -67,6 +69,7 @@ class LoginPage extends StatelessWidget {
                         ),
                         GetBuilder<LoginController>(builder: (controller) {
                           return AppTextField(
+                          textFieldController:controller.password,
                             obscureText: controller.showText,
                             onTap: () {
                               controller.changeShow();
@@ -76,7 +79,7 @@ class LoginPage extends StatelessWidget {
                                   TextEditingController(text: val);
                               return validInput(val!, 8, 50, 'password');
                             },
-                           // controller: controller.password,
+                            // controller: controller.password,
                             type: 'Password',
                             iconData: controller.showText
                                 ? Icons.remove_red_eye_outlined

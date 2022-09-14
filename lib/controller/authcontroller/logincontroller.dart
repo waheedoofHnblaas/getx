@@ -56,8 +56,7 @@ class LoginController extends LoginControllerVM {
               .setString('phone', response['data']['users_phone']);
           myServices.sharedPreferences
               .setString('createDate', response['data']['users_create']);
-          myServices.sharedPreferences
-              .setString('step', '2');
+          myServices.sharedPreferences.setString('step', '2');
           Get.offAllNamed(AppRoute.home);
         } else {
           Get.defaultDialog(
@@ -65,7 +64,7 @@ class LoginController extends LoginControllerVM {
             titleStyle: Get.textTheme.headline1,
             middleText: 'email or password is wrong',
             middleTextStyle: Get.textTheme.bodyText1,
-            backgroundColor:  Get.theme.backgroundColor,
+            backgroundColor: Get.theme.backgroundColor,
           );
           statusRequest = StatusRequest.failure;
         }
@@ -93,6 +92,7 @@ class LoginController extends LoginControllerVM {
       print('FirebaseMessaging.instance.getToken');
       print(value);
     });
+
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();
@@ -100,9 +100,10 @@ class LoginController extends LoginControllerVM {
 
   @override
   void dispose() {
+    // ignore: todo
     // TODO: implement dispose
-    email.dispose();
-    password.dispose();
+    // email.dispose();
+    // password.dispose();
     showText = true;
     super.dispose();
   }
