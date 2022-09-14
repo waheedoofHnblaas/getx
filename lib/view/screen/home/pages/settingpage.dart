@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/controller/home/homecontroller.dart';
@@ -6,7 +5,6 @@ import 'package:getx/controller/home/personcontroller.dart';
 import 'package:getx/controller/themecontroller.dart';
 import 'package:getx/view/widget/home/settingpage/settinginfowidget.dart';
 import 'package:getx/view/widget/home/settingpage/settingrow.dart';
-
 
 class SettingPage extends GetView<ThemeController> {
   SettingPage({key}) : super(key: key);
@@ -19,13 +17,11 @@ class SettingPage extends GetView<ThemeController> {
     return GetBuilder<ThemeController>(
       builder: (themeController) {
         return Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: ListView(
             // ignore: prefer_const_literals_to_create_immutables
             children: [
               const AppSettingInfoWidget(),
-               const SettingRowWidget(),
-              
+              const SettingRowWidget(),
               const SizedBox(
                 width: 80,
               ),

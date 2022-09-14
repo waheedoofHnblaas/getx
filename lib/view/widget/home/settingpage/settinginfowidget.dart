@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/home/personcontroller.dart';
-import 'package:getx/controller/themecontroller.dart';
 import 'package:getx/core/constant/themesdata/themes.dart';
 
 class AppSettingInfoWidget extends StatelessWidget {
@@ -12,10 +8,10 @@ class AppSettingInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    PersonController personController = Get.find();
     return GetBuilder<PersonController>(
       builder: (personController) {
         print(AppThemes().getCurrentThemeMode());
+        print('======================');
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
           padding: const EdgeInsets.all(20),
@@ -35,19 +31,19 @@ class AppSettingInfoWidget extends StatelessWidget {
                 height: 55,
               ),
               Text(
-                personController.email!,
+                personController.email,
                 style: AppThemes().getCurrentTheme().textTheme.bodyText2,
               ),
               Text(
-                personController.phone!,
+                personController.phone,
                 style: AppThemes().getCurrentTheme().textTheme.bodyText2,
               ),
               Text(
-                personController.name!,
+                personController.name,
                 style: AppThemes().getCurrentTheme().textTheme.bodyText2,
               ),
               Text(
-                personController.createDate!,
+                personController.createDate,
                 style: AppThemes().getCurrentTheme().textTheme.bodyText2,
               ),
               const SizedBox(

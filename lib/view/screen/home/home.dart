@@ -11,7 +11,8 @@ import 'package:getx/view/widget/home/appbottomnav.dart';
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
 
-  PersonController personController = Get.find();
+  PersonController personController =
+      Get.put(PersonController(), permanent: true);
 
   HomeController controller = Get.put(HomeController());
   @override

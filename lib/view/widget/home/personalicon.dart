@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/home/personcontroller.dart';
 
 class PersonalIconButton extends StatelessWidget {
@@ -17,10 +16,10 @@ class PersonalIconButton extends StatelessWidget {
               title: 'personal data',
               content: Column(
                 children: [
-                  Text(controller.email!,style: Get.textTheme.bodyText2,),
-                  Text(controller.phone!,style: Get.textTheme.bodyText2,),
-                  Text(controller.name!,style: Get.textTheme.bodyText2,),
-                  Text(controller.createDate!,style: Get.textTheme.bodyText2,),
+                  Text(controller.email,style: Get.textTheme.bodyText2,),
+                  Text(controller.phone,style: Get.textTheme.bodyText2,),
+                  Text(controller.name,style: Get.textTheme.bodyText2,),
+                  Text(controller.createDate,style: Get.textTheme.bodyText2,),
                 ],
               ));
         },
