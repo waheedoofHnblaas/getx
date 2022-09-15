@@ -25,13 +25,13 @@ class ThemeController extends GetxController {
 
     if (isDarkMode) {
       ThemeSwitcher.of(context).changeTheme(
-        theme: AppThemes().getDarkTheme(), isReversed: true, // default: false
+        theme: AppThemes().getDarkTheme(), isReversed: false, // default: false
       );
       Get.changeThemeMode(ThemeMode.dark);
       myServices.sharedPreferences.setString('themeData', 'dark');
     } else {
       ThemeSwitcher.of(context).changeTheme(
-        theme: AppThemes().getTheme(), isReversed: false, // default: false
+        theme: AppThemes().getTheme(), isReversed: true, // default: false
       );
       Get.changeThemeMode(ThemeMode.light);
       myServices.sharedPreferences.setString('themeData', 'light');

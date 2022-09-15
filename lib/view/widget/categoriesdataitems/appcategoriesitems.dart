@@ -20,15 +20,18 @@ class AppCategoriesItems extends StatelessWidget {
             const SizedBox(
               height: 400,
             ),
-             Icon(
+            Icon(
               Icons.hourglass_empty_outlined,
-              color:Get.theme.primaryColor,
+              color: Get.theme.primaryColor,
               size: 44,
             ),
             const SizedBox(
               height: 30,
             ),
-            Text('Empty',style: Get.textTheme.bodyText2,),
+            Text(
+              'Empty',
+              style: Get.textTheme.bodyText2,
+            ),
           ],
         ),
       );
@@ -43,7 +46,10 @@ class AppCategoriesItems extends StatelessWidget {
         ),
         delegate: SliverChildBuilderDelegate(
           (BuildContext context, int index) {
-            return ItemCard(index: index,items: controller.categoriesItemsController);
+            return ItemCard(
+              index: index,
+              items: controller.categoriesItemsController,
+            );
           },
           childCount: controller.categoriesItemsController.length,
         ),

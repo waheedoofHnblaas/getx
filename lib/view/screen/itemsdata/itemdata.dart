@@ -1,16 +1,20 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx/controller/home/itemcontrollers/itemdatacontroller.dart';
 import 'package:getx/core/constant/colors.dart';
+import 'package:getx/data/datasource/static/homepagelist.dart';
 import 'package:getx/data/model/item.dart';
 import 'package:getx/view/widget/home/appbarhome.dart';
 import 'package:getx/view/widget/itemsData/appitemdataappbar.dart';
+import 'package:getx/view/widget/itemsData/itemprocesswidget.dart';
 
 class ItemDataPage extends StatelessWidget {
   const ItemDataPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    ItemDataController itemDataController = Get.find();
     ItemsModel itemsModel = Get.arguments['item'];
     return Scaffold(
       appBar: AppBar(
@@ -18,7 +22,7 @@ class ItemDataPage extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: AppItemDataAppBar(itemName: itemsModel.itemsName!),
       ),
-      body: ListView(
+      body: PageView(
         children: [
           Column(
             children: [
@@ -52,21 +56,8 @@ class ItemDataPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 333),
-                    decoration: BoxDecoration(
-                        color: Get.theme.shadowColor,
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(16))),
-                    child: Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.arrow_circle_down_outlined,
-                            color: Get.theme.primaryColor,
-                          )),
-                    ),
+                  ItemProcessWidget(
+                    itemsModel: itemsModel,
                   ),
                   Container(
                     margin:
@@ -100,7 +91,7 @@ class ItemDataPage extends StatelessWidget {
               Container(
                 width: Get.width - 40,
                 height: Get.height * 0.2,
-                margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 1),
+                margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 1),
                 decoration: BoxDecoration(
                     color: Get.theme.shadowColor,
                     borderRadius: const BorderRadius.all(Radius.circular(16))),
@@ -111,6 +102,7 @@ class ItemDataPage extends StatelessWidget {
               ),
             ],
           ),
+          PageList[1]
         ],
       ),
     );

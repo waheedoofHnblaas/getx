@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/home/personcontroller.dart';
 import 'package:getx/controller/themecontroller.dart';
+import 'package:getx/core/constant/colors.dart';
 import 'package:getx/view/widget/home/settingpage/settinginfowidget.dart';
 import 'package:getx/view/widget/home/settingpage/settingrow.dart';
 

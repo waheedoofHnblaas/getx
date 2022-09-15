@@ -41,7 +41,7 @@ class HomeController extends HomeControllerImp {
   @override
   void onInit() {
     getSummerDiscount();
-   
+
     super.onInit();
   }
 

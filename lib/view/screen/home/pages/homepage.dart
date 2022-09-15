@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/controller/home/homecontroller.dart';
+import 'package:getx/controller/home/itemcontrollers/itemdatacontroller.dart';
 import 'package:getx/view/widget/home/appcardsummery.dart';
 import 'package:getx/view/widget/home/appcategorieswidget.dart';
 import 'package:getx/view/widget/home/appitemsgridcardview.dart';
@@ -10,12 +11,14 @@ class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
   HomeController controller = Get.find();
+  ItemDataController itemDataController =
+      Get.put(ItemDataController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        const AppSearchWidget(),
+         AppSearchWidget(),
         SliverList(
           delegate: SliverChildListDelegate([
             const SizedBox(

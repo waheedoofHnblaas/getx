@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/home/personcontroller.dart';
 import 'package:getx/core/class/handelingview.dart';
+import 'package:getx/core/function/alterexitapp.dart';
 import 'package:getx/data/datasource/static/homepagelist.dart';
 import 'package:getx/view/widget/home/appbarhome.dart';
 import 'package:getx/view/widget/home/appbottomnav.dart';
@@ -20,25 +21,37 @@ class Home extends StatelessWidget {
     return ThemeSwitchingArea(
         child: Scaffold(
       extendBody: true,
-      appBar: AppBar(
-        title: const AppBarHomeWidget(),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: GetBuilder<HomeController>(
-          builder: (controller) => HandelingView(
-              statusRequest: controller.statusRequest!,
-              widget: PageView(
-                onPageChanged: (index) => controller.onPageChanged(index),
-                controller: controller.pageController,
-                children: [
-                  ...List.generate(PageList.length, (index) => PageList[index]),
-                ],
-              )),
+      body: WillPopScope(
+        onWillPop: AlterExitApp,
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 22,
+            ),
+            Flexible(
+              child: GetBuilder<HomeController>(
+                builder: (controller) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: HandelingView(
+                      statusRequest: controller.statusRequest!,
+                      widget: PageView(
+                        physics: const NeverScrollableScrollPhysics(),
+                        onPageChanged: (index) =>
+                            controller.onPageChanged(index),
+                        controller: controller.pageController,
+                        children: [
+                          ...List.generate(PageList.length,
+                              (index) => PageList[controller.currentPage]),
+                        ],
+                      )),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
       resizeToAvoidBottomInset: true,
-      bottomNavigationBar: AppBottomNav(),
+      bottomNavigationBar: const AppBottomNav(),
     ));
   }
 }

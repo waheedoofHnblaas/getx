@@ -13,7 +13,7 @@ class AppSettingInfoWidget extends StatelessWidget {
         print(AppThemes().getCurrentThemeMode());
         print('======================');
         return Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: AppThemes().getCurrentTheme().shadowColor,

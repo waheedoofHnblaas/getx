@@ -5,8 +5,9 @@ import 'package:getx/controller/home/searchcontroller.dart';
 import 'package:getx/view/widget/home/search/datasearch.dart';
 
 class AppSearchWidget extends StatelessWidget {
-  const AppSearchWidget({Key? key}) : super(key: key);
+  AppSearchWidget({Key? key, this.title = 'E-commerce App'}) : super(key: key);
 
+  late String title;
   @override
   Widget build(BuildContext context) {
     SearchController searchController = Get.put(SearchController());
@@ -48,7 +49,7 @@ class AppSearchWidget extends StatelessWidget {
                   flex: 5,
                   child: Center(
                       child: Text(
-                    'E-commerce App',
+                    title,
                     style:
                         Get.textTheme.headline1!.copyWith(fontFamily: 'Combo'),
                   )),

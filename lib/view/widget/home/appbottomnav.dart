@@ -4,11 +4,10 @@ import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/themecontroller.dart';
-import 'package:getx/core/constant/colors.dart';
 import 'package:getx/core/constant/themesdata/themes.dart';
 
 class AppBottomNav extends GetView<ThemeController> {
-  AppBottomNav({Key? key}) : super(key: key);
+  const AppBottomNav({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
