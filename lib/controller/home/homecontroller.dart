@@ -30,9 +30,9 @@ class HomeController extends HomeControllerImp {
   MyServices myServices = Get.find();
   StatusRequest? statusRequest = StatusRequest.none;
   final HomeData homeData = HomeData(Get.find());
-  List<CategoriesModel> categoriesController = [];
-  List<ItemsModel> itemsController = [];
-  List<ItemsModel> categoriesItemsController = [];
+  List<CategoriesModel> categoriesList = [];
+  List<ItemsModel> itemsList = [];
+  List<ItemsModel> categoriesOfItemsList = [];
   int currentPage = 0;
 
   ItemsModel discountItemsModel = ItemsModel(itemsDiscount: '0');
@@ -68,13 +68,13 @@ class HomeController extends HomeControllerImp {
 
   @override
   void getSummerDiscount() async {
-    itemsController = await getHomeData();
+    itemsList = await getHomeData();
     print('element.itemsDiscount=====');
-    for (ItemsModel element in itemsController) {
+    for (ItemsModel element in itemsList) {
       if (int.parse(discountItemsModel.itemsDiscount!) <
           int.parse(element.itemsDiscount!)) {
         print(element.itemsDiscount);
-        print(itemsController.length);
+        print(itemsList.length);
         discountItemsModel = element;
       }
     }
@@ -94,11 +94,11 @@ class HomeController extends HomeControllerImp {
       if (response['status'] == 'success') {
         List categories = await response['categories'];
         for (var element in categories) {
-          categoriesController.add(CategoriesModel.fromJson(element));
+          categoriesList.add(CategoriesModel.fromJson(element));
         }
         List items = await response['items'];
         for (var element in items) {
-          itemsController.add(ItemsModel.fromJson(element));
+          itemsList.add(ItemsModel.fromJson(element));
         }
       } else {
         Get.defaultDialog(
@@ -112,7 +112,7 @@ class HomeController extends HomeControllerImp {
       }
     }
     update();
-    return itemsController;
+    return itemsList;
   }
 
   @override
@@ -149,12 +149,12 @@ class HomeController extends HomeControllerImp {
 
   @override
   getCategoriesItems(String id) {
-    categoriesItemsController.clear();
-    for (ItemsModel element in itemsController) {
+    categoriesOfItemsList.clear();
+    for (ItemsModel element in itemsList) {
       if (element.categoriesId == id) {
-        categoriesItemsController.add(element);
+        categoriesOfItemsList.add(element);
       } else {
-        categoriesItemsController.remove(element);
+        categoriesOfItemsList.remove(element);
       }
     }
     update();

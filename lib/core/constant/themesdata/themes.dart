@@ -69,7 +69,7 @@ class AppThemes {
           fontSize: 16,
           color: Color(0xff91023d),
         ),
-        toolbarHeight: Get.height * 0.07,
+        toolbarHeight: Get.height * 0.1,
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),
@@ -128,7 +128,7 @@ class AppThemes {
           fontSize: 16,
           color: Color(0xFFFFE1E1),
         ),
-        toolbarHeight: Get.height * 0.07,
+        toolbarHeight: Get.height * 0.1,
         iconTheme: const IconThemeData(
           color: Color(0xFFFFFFFF),
         ),

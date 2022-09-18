@@ -18,83 +18,85 @@ class SettingRowWidget extends StatelessWidget {
     HomeController homeController = Get.find();
     ThemeController themeController = Get.find();
     MyLocalController localController = Get.find();
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: AppThemes().getCurrentTheme().shadowColor,
-        borderRadius: const BorderRadius.all(Radius.circular(16)),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          RowTileWidget(
-            onTap: () {},
-            icon: Icon(
-              Icons.add,
-              color: AppThemes().getCurrentTheme().primaryColor,
-              size: 33,
+    return GetBuilder<ThemeController>(
+      builder: (controller) => Container(
+        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: AppThemes().getCurrentTheme().shadowColor,
+          borderRadius: const BorderRadius.all(Radius.circular(16)),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            RowTileWidget(
+              onTap: () {},
+              icon: Icon(
+                Icons.add,
+                color: AppThemes().getCurrentTheme().primaryColor,
+                size: 33,
+              ),
+              text: const Text('add product'),
             ),
-            text: const Text('add product'),
-          ),
-          RowTileWidget(
-            onTap: () {},
-            icon: Icon(
-              Icons.open_in_browser_rounded,
-              color: AppThemes().getCurrentTheme().primaryColor,
-              size: 33,
+            RowTileWidget(
+              onTap: () {},
+              icon: Icon(
+                Icons.open_in_browser_rounded,
+                color: AppThemes().getCurrentTheme().primaryColor,
+                size: 33,
+              ),
+              text: const Text('my posts'),
             ),
-            text: const Text('my posts'),
-          ),
-          ThemeSwitcher(
-            builder: (context) => RowTileWidget(
-              onTap: () {
-                print(Get.locale);
+            ThemeSwitcher(
+              builder: (context) => RowTileWidget(
+                onTap: () {
+                  print(Get.locale);
 
-                localController.switchLang();
-              },
+                  localController.switchLang();
+                },
+                icon: Icon(
+                  Icons.language_outlined,
+                  color: AppThemes().getCurrentTheme().primaryColor,
+                  size: 33,
+                ),
+                text: const Text('change language'),
+              ),
+            ),
+            ThemeSwitcher(
+              builder: (context) => RowTileWidget(
+                onTap: () {
+                  themeController.toggleDarkMode(context);
+                },
+                icon: Icon(
+                  Icons.sunny,
+                  color: AppThemes().getCurrentTheme().primaryColor,
+                  size: 33,
+                ),
+                text: const Text('change theme'),
+              ),
+            ),
+            RowTileWidget(
+              onTap: () {},
               icon: Icon(
-                Icons.language_outlined,
+                Icons.edit,
                 color: AppThemes().getCurrentTheme().primaryColor,
                 size: 33,
               ),
-              text: const Text('change language'),
+              text: const Text('edit account'),
             ),
-          ),
-          ThemeSwitcher(
-            builder: (context) => RowTileWidget(
-              onTap: () {
-                themeController.toggleDarkMode(context);
+            RowTileWidget(
+              onTap: () async {
+                await homeController.logout();
               },
               icon: Icon(
-                Icons.sunny,
+                Icons.power_settings_new_outlined,
                 color: AppThemes().getCurrentTheme().primaryColor,
                 size: 33,
               ),
-              text: const Text('change theme'),
+              text: const Text('logout'),
             ),
-          ),
-          RowTileWidget(
-            onTap: () {},
-            icon: Icon(
-              Icons.edit,
-              color: AppThemes().getCurrentTheme().primaryColor,
-              size: 33,
-            ),
-            text: const Text('edit account'),
-          ),
-          RowTileWidget(
-            onTap: () async {
-              await homeController.logout();
-            },
-            icon: Icon(
-              Icons.power_settings_new_outlined,
-              color: AppThemes().getCurrentTheme().primaryColor,
-              size: 33,
-            ),
-            text: const Text('logout'),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

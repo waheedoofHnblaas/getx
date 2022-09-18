@@ -23,15 +23,15 @@ class AppCategoriesWidget extends StatelessWidget {
       height: Get.height * 0.16,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: controller.categoriesController.length,
+        itemCount: controller.categoriesList.length,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
               controller.getCategoriesItems(
-                  controller.categoriesController[index].categoriesId!);
+                  controller.categoriesList[index].categoriesId!);
               controller.goToCategoriesPage(
-                  controller.categoriesController[index].categoriesId!,
-                  controller.categoriesController[index].categoriesName!);
+                  controller.categoriesList[index].categoriesId!,
+                  controller.categoriesList[index].categoriesName!);
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -55,7 +55,7 @@ class AppCategoriesWidget extends StatelessWidget {
                       // width: 77,
                       backgroundColor: Get.theme.primaryColor.withOpacity(0.8),
                       child: SvgPicture.network(
-                        '${AppLinks.imageLink}${controller.categoriesController[index].categoriesImage!}',
+                        '${AppLinks.imageLink}${controller.categoriesList[index].categoriesImage!}',
                         color: Get.theme.backgroundColor,
                         width: Get.width * 0.1,
                         height: Get.width * 0.1,
@@ -63,7 +63,7 @@ class AppCategoriesWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    controller.categoriesController[index].categoriesName!,
+                    controller.categoriesList[index].categoriesName!,
                     style: Get.textTheme.bodyText2,
                   ),
                 ],

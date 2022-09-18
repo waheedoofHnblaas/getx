@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/home/itemcontrollers/itemdatacontroller.dart';
 import 'package:getx/view/widget/home/orderspage/basketitemdatacard.dart';
+import 'package:getx/view/widget/home/orderspage/showcostwidget.dart';
 
 class YourOrdersPage extends StatelessWidget {
   YourOrdersPage({Key? key}) : super(key: key);
@@ -13,31 +14,37 @@ class YourOrdersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          width: Get.width,
-          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-          decoration: BoxDecoration(
-              border: Border.all(
-                width: 1,
-                color: Get.theme.primaryColor,
-              ),
-              color: Get.theme.shadowColor,
-              borderRadius: const BorderRadius.all(Radius.circular(10))),
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Center(
-              child: GetBuilder<ItemDataController>(builder: (controller) {
-                return Text('Cost = ${controller.getCost()}\$');
-              }),
-            ),
-          ),
-        ),
         Flexible(
           child: GetBuilder<ItemDataController>(
             builder: ((controller) {
               if (controller.getPasketItems().isEmpty) {
-                return const Center(
-                  child: Text('No Product Selected'),
+                return Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text('No Product Selected'),
+                      const SizedBox(height: 20,),
+                      GetBuilder<HomeController>(
+                        builder: (controller) => Container(
+                          decoration: BoxDecoration(
+                            color: Get.theme.shadowColor,
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(18),
+                            ),
+                          ),
+                          child: IconButton(
+                              onPressed: () {
+                                controller.changePage(0);
+
+                              },
+                              icon: Icon(
+                                Icons.add,
+                                color: Get.theme.primaryColor,
+                              )),
+                        ),
+                      )
+                    ],
+                  ),
                 );
               } else {
                 return ListView.builder(
@@ -51,6 +58,7 @@ class YourOrdersPage extends StatelessWidget {
             }),
           ),
         ),
+        const showCostWidget(),
       ],
     );
   }

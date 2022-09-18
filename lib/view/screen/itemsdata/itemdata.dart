@@ -24,7 +24,7 @@ class ItemDataPage extends StatelessWidget {
       ),
       body: PageView(
         children: [
-          Column(
+          ListView(
             children: [
               Container(
                 width: Get.width - 20,

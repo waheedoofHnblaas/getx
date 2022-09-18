@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
     MyLocalController localcontroller =
         Get.put(MyLocalController(), permanent: true);
     return ThemeProvider(
+      duration: const Duration(milliseconds: 800),
       initTheme: AppThemes().getCurrentTheme(),
       builder: (p0, theme) => GetMaterialApp(
         locale: localcontroller.language,
