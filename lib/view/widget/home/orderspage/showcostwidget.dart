@@ -7,7 +7,7 @@ class showCostWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ItemDataController>(builder: (controller) {
+    return GetBuilder<orderDataController>(builder: (controller) {
       return Container(
         margin: EdgeInsets.only(bottom: Get.height * 0.1, right: 10, left: 10),
         decoration: BoxDecoration(
@@ -22,7 +22,7 @@ class showCostWidget extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              GetBuilder<ItemDataController>(builder: (controller) {
+              GetBuilder<orderDataController>(builder: (controller) {
                 return Text('Cost = ${controller.getCost()}\$');
               }),
               IconButton(

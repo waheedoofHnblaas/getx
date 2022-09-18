@@ -8,18 +8,21 @@ import 'package:getx/data/model/item.dart';
 class ItemProcessWidget extends StatelessWidget {
   ItemProcessWidget({Key? key, required this.itemsModel}) : super(key: key);
   ItemsModel itemsModel;
+
   @override
   Widget build(BuildContext context) {
-    ItemDataController controller = Get.find();
+    orderDataController controller = Get.find();
 
-    return Row(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-              color: Get.theme.shadowColor,
-              borderRadius:
-                  const BorderRadius.horizontal(left: Radius.circular(16))),
-          child: Padding(
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(width: 1, color: Get.theme.primaryColor),
+        color: Get.theme.backgroundColor,
+        borderRadius: const BorderRadius.all(Radius.circular(18)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Padding(
             padding: const EdgeInsets.all(3.0),
             child: IconButton(
                 onPressed: () {
@@ -30,27 +33,16 @@ class ItemProcessWidget extends StatelessWidget {
                   color: Get.theme.primaryColor,
                 )),
           ),
-        ),
-        GetBuilder<ItemDataController>(builder: (controller) {
-          return Container(
-            decoration: BoxDecoration(
-                color: Get.theme.shadowColor,
-                borderRadius: const BorderRadius.all(Radius.circular(0))),
-            child: Padding(
+          GetBuilder<orderDataController>(builder: (controller) {
+            return Padding(
               padding: const EdgeInsets.all(12.0),
               child: Text(
                 controller.getCount(itemsModel).toString(),
                 style: Get.textTheme.headline1,
               ),
-            ),
-          );
-        }),
-        Container(
-          decoration: BoxDecoration(
-              color: Get.theme.shadowColor,
-              borderRadius:
-                  const BorderRadius.horizontal(right: Radius.circular(16))),
-          child: Padding(
+            );
+          }),
+          Padding(
             padding: const EdgeInsets.all(3.0),
             child: IconButton(
                 onPressed: () {
@@ -61,8 +53,8 @@ class ItemProcessWidget extends StatelessWidget {
                   color: Get.theme.primaryColor,
                 )),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

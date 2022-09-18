@@ -11,8 +11,8 @@ class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
   HomeController controller = Get.find();
-  ItemDataController itemDataController =
-      Get.put(ItemDataController(), permanent: true);
+  orderDataController itemDataController =
+      Get.put(orderDataController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {

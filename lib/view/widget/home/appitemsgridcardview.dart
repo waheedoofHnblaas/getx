@@ -22,7 +22,10 @@ class AppItemCardView extends StatelessWidget {
       ),
       delegate: SliverChildBuilderDelegate(
         (BuildContext context, int index) {
-          return ItemCard(index: index,items: controller.itemsList,);
+          return ItemCard(
+            index: index,
+            items: controller.itemsList,
+          );
         },
         childCount: controller.itemsList.length,
       ),

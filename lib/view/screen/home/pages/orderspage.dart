@@ -15,7 +15,7 @@ class YourOrdersPage extends StatelessWidget {
     return Column(
       children: [
         Flexible(
-          child: GetBuilder<ItemDataController>(
+          child: GetBuilder<orderDataController>(
             builder: ((controller) {
               if (controller.getPasketItems().isEmpty) {
                 return Center(
