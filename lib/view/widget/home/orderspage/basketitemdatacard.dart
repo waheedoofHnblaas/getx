@@ -11,7 +11,7 @@ class BasketItemData extends StatelessWidget {
     required this.controller,
     required this.index,
   }) : super(key: key);
-  ItemDataController controller;
+  orderDataController controller;
   int index;
   @override
   Widget build(BuildContext context) {

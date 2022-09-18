@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:getx/core/constant/approutes.dart';
 import 'package:getx/data/model/item.dart';
 
-class ItemDataController extends GetxController {
+class orderDataController extends GetxController {
   Map<ItemsModel, int> items = {};
 
   @override

@@ -13,7 +13,9 @@ import 'package:get/get.dart';
 
 abstract class HomeControllerImp extends GetxController {
   changePage(int i);
+
   onPageChanged(int i);
+
   logout();
 
   getHomeData();
@@ -21,8 +23,10 @@ abstract class HomeControllerImp extends GetxController {
   getCategoriesItems(String id);
 
   void getSummerDiscount();
+
   // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
   goToItemDataPage(ItemsModel);
+
   goToCategoriesPage(String id, String name);
 }
 
@@ -143,6 +147,8 @@ class HomeController extends HomeControllerImp {
       arguments: {
         'categories_id': id,
         'categories_name': name,
+        'catList': categoriesOfItemsList,
+        'categoriesList': categoriesList,
       },
     );
   }
