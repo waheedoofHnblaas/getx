@@ -18,7 +18,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-         AppSearchWidget(),
         SliverList(
           delegate: SliverChildListDelegate([
             const SizedBox(

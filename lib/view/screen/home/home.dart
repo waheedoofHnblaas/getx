@@ -8,6 +8,7 @@ import 'package:getx/core/function/alterexitapp.dart';
 import 'package:getx/data/datasource/static/homepagelist.dart';
 import 'package:getx/view/widget/home/appbarhome.dart';
 import 'package:getx/view/widget/home/appbottomnav.dart';
+import 'package:getx/view/widget/home/search/appsearchwidget.dart';
 
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
@@ -16,18 +17,18 @@ class Home extends StatelessWidget {
       Get.put(PersonController(), permanent: true);
 
   HomeController controller = Get.put(HomeController());
+
   @override
   Widget build(BuildContext context) {
     return ThemeSwitchingArea(
         child: Scaffold(
       extendBody: true,
+      appBar: AppBar(title: AppSearchWidget(),),
       body: WillPopScope(
         onWillPop: AlterExitApp,
         child: Column(
           children: [
-            const SizedBox(
-              height: 22,
-            ),
+
             Flexible(
               child: GetBuilder<HomeController>(
                 builder: (controller) => Padding(
@@ -35,6 +36,7 @@ class Home extends StatelessWidget {
                   child: HandelingView(
                       statusRequest: controller.statusRequest!,
                       widget: PageView(
+                        //oooooooooooooooooooooooooo
                         physics: const NeverScrollableScrollPhysics(),
                         onPageChanged: (index) =>
                             controller.onPageChanged(index),

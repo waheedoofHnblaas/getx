@@ -12,7 +12,7 @@ class AppCategoriesItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (controller.categoriesItemsController.isEmpty) {
+    if (controller.categoriesOfItemsList.isEmpty) {
       return SliverToBoxAdapter(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -48,10 +48,10 @@ class AppCategoriesItems extends StatelessWidget {
           (BuildContext context, int index) {
             return ItemCard(
               index: index,
-              items: controller.categoriesItemsController,
+              items: controller.categoriesOfItemsList,
             );
           },
-          childCount: controller.categoriesItemsController.length,
+          childCount: controller.categoriesOfItemsList.length,
         ),
       );
     }

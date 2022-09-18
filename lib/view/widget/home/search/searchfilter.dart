@@ -9,7 +9,7 @@ class SearchFilter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(builder: (controller) {
-      List filterNames = controller.itemsController
+      List filterNames = controller.itemsList
           .where((element) => element.itemsName!.toLowerCase().trim().contains(
                 query.toLowerCase().trim(),
               ))
@@ -25,7 +25,7 @@ class SearchFilter extends StatelessWidget {
               query != ''
                   ? controller.goToItemDataPage(filterNames[index])
                   : controller
-                      .goToItemDataPage(controller.itemsController[index]);
+                      .goToItemDataPage(controller.itemsList[index]);
             },
             child: ListTile(
               title: query != ''
@@ -33,7 +33,7 @@ class SearchFilter extends StatelessWidget {
                       filterNames[index].itemsName.toString(),
                     )
                   : Text(
-                      controller.itemsController[index].itemsName.toString(),
+                      controller.itemsList[index].itemsName.toString(),
                     ),
               trailing: query != ''
                   ? Text(
@@ -41,7 +41,7 @@ class SearchFilter extends StatelessWidget {
                       style: Get.textTheme.subtitle1,
                     )
                   : Text(
-                      '${controller.itemsController[index].itemsPrice} \$',
+                      '${controller.itemsList[index].itemsPrice} \$',
                       style: Get.textTheme.subtitle1,
                     ),
             ),

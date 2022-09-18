@@ -14,10 +14,9 @@ class AppBottomNav extends GetView<ThemeController> {
     return Scrollbar(
       child: GetBuilder<HomeController>(builder: (controller) {
         return GetBuilder<ThemeController>(builder: (themeController) {
-          return AnimatedContainer(
-            duration: const Duration(milliseconds: 50),
+          return Container(
             height: 58,
-            margin: const EdgeInsets.symmetric(horizontal: 30),
+            width: Get.width-10,
             decoration: BoxDecoration(
               border: Border.all(
                 color: AppThemes().getCurrentTheme().primaryColor,

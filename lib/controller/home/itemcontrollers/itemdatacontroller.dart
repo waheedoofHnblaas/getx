@@ -30,6 +30,10 @@ class ItemDataController extends GetxController {
     }
     update();
   }
+  deleteAll() {
+    items.clear();
+    update();
+  }
 
   int? getCount(ItemsModel item) {
     print(items);
