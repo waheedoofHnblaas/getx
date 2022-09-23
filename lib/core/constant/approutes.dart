@@ -13,4 +13,5 @@ class AppRoute{
  static String successSignup = '/successSignup';
  static String successresetpassword = '/successresetpassword';
  static String checkemail = '/checkemail';
+ static String addItem = '/addItem';
 }

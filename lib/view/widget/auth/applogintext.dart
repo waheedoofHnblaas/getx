@@ -7,9 +7,11 @@ class AppLoginTitel extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
-    return Text(
-      title,
-      style: Get.theme.textTheme.headline1,
+    return Center(
+      child: Text(
+        title,
+        style: Get.theme.textTheme.headline1,
+      ),
     );
   }
 }

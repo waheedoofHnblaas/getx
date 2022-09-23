@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:getx/core/constant/approutes.dart';
 import 'package:getx/core/middelware.dart';
+import 'package:getx/view/screen/additem/additem.dart';
 import 'package:getx/view/screen/auth/forgetpassword/forgetpassword.dart';
 import 'package:getx/view/screen/auth/login.dart';
 import 'package:getx/view/screen/auth/signup.dart';
@@ -46,6 +47,12 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
     name: AppRoute.itemdata,
     page: () => const ItemDataPage(),
+    transition: Transition.downToUp,
+    transitionDuration: const Duration(milliseconds: 333),
+  ),
+  GetPage(
+    name: AppRoute.addItem,
+    page: () => const AddItemPage(),
     transition: Transition.downToUp,
     transitionDuration: const Duration(milliseconds: 333),
   ),

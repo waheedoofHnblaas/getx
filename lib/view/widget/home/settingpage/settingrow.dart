@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/home/personcontroller.dart';
 import 'package:getx/controller/themecontroller.dart';
+import 'package:getx/core/constant/approutes.dart';
 import 'package:getx/core/constant/themesdata/themes.dart';
 import 'package:getx/core/localization/changelocal.dart';
 import 'package:getx/view/widget/home/settingpage/rowtile.dart';
@@ -30,7 +31,9 @@ class SettingRowWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             RowTileWidget(
-              onTap: () {},
+              onTap: () {
+                Get.toNamed(AppRoute.addItem);
+              },
               icon: Icon(
                 Icons.add,
                 color: AppThemes().getCurrentTheme().primaryColor,
