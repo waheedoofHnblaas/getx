@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/home/searchcontroller.dart';
 import 'package:getx/controller/themecontroller.dart';
 import 'package:getx/core/constant/themesdata/themes.dart';
@@ -16,6 +17,7 @@ class AppSearchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HomeController homeController = Get.find();
     SearchController searchController = Get.put(SearchController());
     return GetBuilder<ThemeController>(
       builder: (controller) => SizedBox(
@@ -69,8 +71,11 @@ class AppSearchWidget extends StatelessWidget {
                 ),
                 child: IconButton(
                     color: AppThemes().getCurrentTheme().primaryColor,
-                    onPressed: () {},
-                    icon: const Icon(Icons.filter_list)),
+                    onPressed: () async{
+                      homeController.changePage(0);
+                     await homeController.getHomeData();
+                    },
+                    icon: const Icon(Icons.update)),
               ),
             )
           ],

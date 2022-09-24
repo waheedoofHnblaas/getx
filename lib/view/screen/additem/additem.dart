@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/controller/additemcontoller/additemcontroller.dart';
+import 'package:getx/controller/itemscontrollers/additemcontroller.dart';
 import 'package:getx/core/class/statusrequest.dart';
 import 'package:getx/core/constant/imagesassets.dart';
 import 'package:getx/view/widget/auth/apploginbutton.dart';

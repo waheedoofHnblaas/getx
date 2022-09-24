@@ -15,8 +15,9 @@ class AppLinks {
   static const String categoriesLink         = '$serverLink/categories/view.php';
   static const String homeDataLink           = '$serverLink/home.php';
 
-  //========================    Add Item    ===========================
+  //========================    curd Items    ===========================
   static const String addItemLink         = '$serverLink/items/add.php';
+  static const String deleteItemLink         = '$serverLink/items/delete.php';
 
   //========================    Forget Password    ===========================
   static const String checkEmailLink        = '$serverLink/forgetpassword/checkemail.php';

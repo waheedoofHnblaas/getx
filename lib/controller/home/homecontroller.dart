@@ -87,10 +87,11 @@ class HomeController extends HomeControllerImp {
 
   @override
   Future<List<ItemsModel>> getHomeData() async {
+
     statusRequest = StatusRequest.loading;
     update();
     print('getHomeData');
-
+    itemsList.clear();
     var response = await homeData.homeData();
     statusRequest = handlingData(response);
     print('${response['categories'][1]['categories_name']}------');
