@@ -12,23 +12,35 @@ class AppItemCardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverGrid(
-      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 190.0,
-        mainAxisSpacing: 20.0,
-        mainAxisExtent: 260,
-        crossAxisSpacing: 22.0,
-        childAspectRatio: 4.0,
-      ),
-      delegate: SliverChildBuilderDelegate(
-        (BuildContext context, int index) {
-          return ItemCard(
-            index: index,
-            items: controller.itemsList,
-          );
-        },
-        childCount: controller.itemsList.length,
-      ),
-    );
+    if (controller.itemsList.isNotEmpty) {
+      return SliverGrid(
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 190.0,
+          mainAxisSpacing: 20.0,
+          mainAxisExtent: 260,
+          crossAxisSpacing: 22.0,
+          childAspectRatio: 4.0,
+        ),
+        delegate: SliverChildBuilderDelegate(
+          (BuildContext context, int index) {
+            return ItemCard(
+              index: index,
+              items: controller.itemsList,
+            );
+          },
+          childCount: controller.itemsList.length,
+        ),
+      );
+    } else {
+      return SliverToBoxAdapter(
+        child: Container(
+          margin: const EdgeInsets.only(top: 200),
+          child: Center(
+            child: Text('No Items',
+                style: TextStyle(color: Get.theme.primaryColor)),
+          ),
+        ),
+      );
+    }
   }
 }

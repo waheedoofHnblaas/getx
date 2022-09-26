@@ -14,7 +14,7 @@ abstract class additemControllerVM extends GetxController {
   add();
 
   getImagePath();
-
+  changeCat(String index);
   bool isValied();
 }
 
@@ -50,6 +50,8 @@ class AddItemController extends additemControllerVM {
     items_price = TextEditingController();
     super.onInit();
   }
+
+
 
   @override
   Future getImagePath() async {
@@ -132,5 +134,13 @@ class AddItemController extends additemControllerVM {
     } else {
       return true;
     }
+  }
+
+  @override
+  changeCat(String index) {
+
+    items_cat =
+        TextEditingController(text: index);
+    update();
   }
 }

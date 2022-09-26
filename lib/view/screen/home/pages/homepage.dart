@@ -16,46 +16,53 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverList(
-          delegate: SliverChildListDelegate([
-            const SizedBox(
-              height: 10,
-            ),
-            AppCardSummery(),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              'Categories',
-              style: Get.textTheme.headline1,
-            ),
-            Container(
-              height: 0.5,
-              color: Get.theme.primaryColor,
-            ),
-            AppCategoriesWidget(),
-            Text(
-              'Products',
-              style: Get.textTheme.headline1,
-            ),
-            Container(
-              height: 0.5,
-              color: Get.theme.primaryColor,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-          ]),
-        ),
-        AppItemCardView(),
-        const SliverToBoxAdapter(
-          child: SizedBox(
-            height: 70,
+    return RefreshIndicator(
+      color: Get.theme.primaryColor,
+      backgroundColor: Get.theme.backgroundColor,
+      onRefresh: () async {
+       await controller.getHomeData();
+      },
+      child: CustomScrollView(
+        slivers: [
+          SliverList(
+            delegate: SliverChildListDelegate([
+              const SizedBox(
+                height: 10,
+              ),
+              AppCardSummery(),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                'Categories',
+                style: Get.textTheme.headline1,
+              ),
+              Container(
+                height: 0.5,
+                color: Get.theme.primaryColor,
+              ),
+              AppCategoriesWidget(),
+              Text(
+                'Products',
+                style: Get.textTheme.headline1,
+              ),
+              Container(
+                height: 0.5,
+                color: Get.theme.primaryColor,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+            ]),
           ),
-        )
-      ],
+          AppItemCardView(),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 70,
+            ),
+          )
+        ],
+      ),
     );
   }
 }

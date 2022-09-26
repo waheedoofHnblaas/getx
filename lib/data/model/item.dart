@@ -23,7 +23,6 @@ class ItemsModel {
         this.itemsName,
         this.itemsNameAr,
         this.itemsDesc,
-        this.itemsDescAr,
         this.itemsImage,
         this.itemsCount,
         this.itemsActive,

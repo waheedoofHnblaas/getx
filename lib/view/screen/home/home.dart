@@ -23,12 +23,13 @@ class Home extends StatelessWidget {
     return ThemeSwitchingArea(
         child: Scaffold(
       extendBody: true,
-      appBar: AppBar(title: AppSearchWidget(),),
+      appBar: AppBar(
+        title: AppSearchWidget(),
+      ),
       body: WillPopScope(
         onWillPop: AlterExitApp,
         child: Column(
           children: [
-
             Flexible(
               child: GetBuilder<HomeController>(
                 builder: (controller) => Padding(
@@ -36,7 +37,6 @@ class Home extends StatelessWidget {
                   child: HandelingView(
                       statusRequest: controller.statusRequest!,
                       widget: PageView(
-                        //oooooooooooooooooooooooooo
                         physics: const NeverScrollableScrollPhysics(),
                         onPageChanged: (index) =>
                             controller.onPageChanged(index),

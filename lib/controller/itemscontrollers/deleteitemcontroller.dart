@@ -21,11 +21,6 @@ class DeleteItemController extends GetxController {
     ItemsModel itemsModel = Get.arguments['item'];
     item_id = itemsModel.itemsId!;
     item_imageName = basename(itemsModel.itemsImage!);
-    print(item_imageName);
-    print(itemsModel.itemsImage!);
-    print(item_id);
-    print('===================');
-
     super.onInit();
   }
 

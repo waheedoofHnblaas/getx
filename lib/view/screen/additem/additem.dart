@@ -1,12 +1,15 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/itemscontrollers/additemcontroller.dart';
 import 'package:getx/core/class/statusrequest.dart';
 import 'package:getx/core/constant/imagesassets.dart';
+import 'package:getx/view/widget/additem/categorieschoosewidget.dart';
 import 'package:getx/view/widget/auth/apploginbutton.dart';
 import 'package:getx/view/widget/auth/apploginsubtitle.dart';
 import 'package:getx/view/widget/auth/apptextfield.dart';
+import 'package:getx/view/widget/home/appcategorieswidget.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../widget/auth/applogintext.dart';
@@ -17,6 +20,7 @@ class AddItemPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(AddItemController());
+    HomeController homeController = Get.find();
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -142,53 +146,40 @@ class AddItemPage extends StatelessWidget {
                             print(controller.items_price.text);
                           },
                         ),
-                        AppTextField(
-                          textFieldController: controller.items_cat,
-                          validator: (val) {
-                            return null;
-                          },
-                          type: 'Item categories',
-                          iconData: Icons.price_change_outlined,
-                          inputType: TextInputType.name,
-                          onChanged: (val) {
-                            controller.items_cat =
-                                TextEditingController(text: val);
-                            print(controller.items_cat.text);
-                          },
+
+                        // ),
+                        Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 22),
+                          child: AddCategoriesWidget(),
                         ),
-                        AppTextField(
-                          textFieldController: controller.items_active,
-                          validator: (val) {
-                            return null;
-                          },
-                          type: 'Item active',
-                          iconData: Icons.local_activity_outlined,
-                          inputType: TextInputType.name,
-                          onChanged: (val) {
-                            controller.items_active =
-                                TextEditingController(text: val);
-                            print(controller.items_active.text);
-                          },
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            controller.file.isNull
-                                ? Container()
-                                : SizedBox(
-                                    width: 60,
-                                    height: 60,
-                                    child: Image.file(
-                                        File(controller.file!.path))),
-                            TextButton(
-                                onPressed: () async {
-                                  await controller.getImagePath();
-                                },
-                                child: const Text(
-                                  'ADD IMAGE',
-                                  style: TextStyle(color: Colors.blue),
-                                )),
-                          ],
+
+                        Container(
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 22),
+                          decoration: BoxDecoration(
+                              color: Get.theme.shadowColor,
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(16))),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              controller.file.isNull
+                                  ? Container()
+                                  : SizedBox(
+                                      width: 60,
+                                      height: 60,
+                                      child: Image.file(
+                                          File(controller.file!.path))),
+                              TextButton(
+                                  onPressed: () async {
+                                    await controller.getImagePath();
+                                  },
+                                  child: const Text(
+                                    'ADD IMAGE',
+                                    style: TextStyle(color: Colors.blue),
+                                  )),
+                            ],
+                          ),
                         ),
                       ],
                     ),

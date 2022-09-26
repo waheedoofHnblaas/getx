@@ -1,11 +1,17 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/controller/home/homecontroller.dart';
 import 'package:getx/controller/home/searchcontroller.dart';
 import 'package:getx/controller/themecontroller.dart';
+import 'package:getx/core/constant/approutes.dart';
 import 'package:getx/core/constant/themesdata/themes.dart';
+import 'package:getx/core/localization/changelocal.dart';
 import 'package:getx/view/widget/home/search/datasearch.dart';
+import 'package:getx/view/widget/home/settinghomewidget.dart';
+import 'package:getx/view/widget/home/settingpage/rowtile.dart';
+import 'package:getx/view/widget/home/settingpage/settingrow.dart';
 
 class AppSearchWidget extends StatelessWidget {
   AppSearchWidget(
@@ -17,6 +23,9 @@ class AppSearchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeController themeController = Get.find();
+    MyLocalController localController = Get.find();
+
     HomeController homeController = Get.find();
     SearchController searchController = Get.put(SearchController());
     return GetBuilder<ThemeController>(
@@ -71,11 +80,15 @@ class AppSearchWidget extends StatelessWidget {
                 ),
                 child: IconButton(
                     color: AppThemes().getCurrentTheme().primaryColor,
-                    onPressed: () async{
-                      homeController.changePage(0);
-                     await homeController.getHomeData();
+                    onPressed: () async {
+                      Get.defaultDialog(
+                        title: 'Setting',
+                        titleStyle: Get.textTheme.headline1,
+                        backgroundColor: Get.theme.backgroundColor,
+                        content: const SettingHomeWidget(),
+                      );
                     },
-                    icon: const Icon(Icons.update)),
+                    icon: const Icon(Icons.menu)),
               ),
             )
           ],

@@ -45,7 +45,6 @@ class HomeController extends HomeControllerImp {
   @override
   void onInit() {
     getSummerDiscount();
-
     super.onInit();
   }
 
@@ -74,34 +73,39 @@ class HomeController extends HomeControllerImp {
   void getSummerDiscount() async {
     itemsList = await getHomeData();
     print('element.itemsDiscount=====');
-    for (ItemsModel element in itemsList) {
-      if (int.parse(discountItemsModel.itemsDiscount!) <
-          int.parse(element.itemsDiscount!)) {
-        print(element.itemsDiscount);
-        print(itemsList.length);
-        discountItemsModel = element;
+    if (itemsList.isNotEmpty) {
+      for (ItemsModel element in itemsList) {
+        if (int.parse(discountItemsModel.itemsDiscount!) <
+            int.parse(element.itemsDiscount!)) {
+          print(element.itemsDiscount);
+          print(itemsList.length);
+          discountItemsModel = element;
+        }
       }
     }
+
     update();
   }
 
   @override
   Future<List<ItemsModel>> getHomeData() async {
-
     statusRequest = StatusRequest.loading;
     update();
     print('getHomeData');
     itemsList.clear();
     var response = await homeData.homeData();
     statusRequest = handlingData(response);
-    print('${response['categories'][1]['categories_name']}------');
+
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
         List categories = await response['categories'];
         for (var element in categories) {
           categoriesList.add(CategoriesModel.fromJson(element));
         }
-        List items = await response['items'];
+        List items = [];
+        if (response['items'] != []) {
+          items = response['items'];
+        }
         for (var element in items) {
           itemsList.add(ItemsModel.fromJson(element));
         }
@@ -116,6 +120,17 @@ class HomeController extends HomeControllerImp {
         statusRequest = StatusRequest.failure;
       }
     }
+    Get.showSnackbar( GetSnackBar(
+      backgroundColor: Get.theme.backgroundColor,
+      messageText: const Center(
+          child: Text(
+        'done update',
+        style: TextStyle(color: Colors.greenAccent),
+      )),
+      duration: const Duration(
+        seconds: 2,
+      ),
+    ));
     update();
     return itemsList;
   }
