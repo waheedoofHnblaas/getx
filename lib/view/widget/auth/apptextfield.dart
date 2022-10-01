@@ -23,11 +23,13 @@ class AppTextField extends StatelessWidget {
   late String? Function(String?)? validator;
   final void Function()? onTap;
   late TextEditingController textFieldController;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
       child: TextFormField(
+        textAlign: TextAlign.center,
         controller: textFieldController,
         validator: validator,
         keyboardType: inputType,
@@ -35,6 +37,7 @@ class AppTextField extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         style: TextStyle(color: Get.theme.primaryColor),
         decoration: InputDecoration(
+          hintTextDirection: TextDirection.ltr,
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Get.theme.primaryColor),
             borderRadius: BorderRadius.circular(18),
@@ -56,7 +59,7 @@ class AppTextField extends StatelessWidget {
             ),
           ),
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          hintText: 'inter your $type',
+          hintText: type,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
           border: OutlineInputBorder(

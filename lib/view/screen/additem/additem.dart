@@ -107,13 +107,14 @@ class AddItemPage extends StatelessWidget {
                           },
                         ),
                         AppTextField(
+
                           textFieldController: controller.items_count,
                           validator: (val) {
                             return null;
                           },
                           type: 'Item Count',
                           iconData: Icons.numbers,
-                          inputType: TextInputType.name,
+                          inputType: TextInputType.number,
                           onChanged: (val) {
                             controller.items_count =
                                 TextEditingController(text: val);
@@ -126,7 +127,7 @@ class AddItemPage extends StatelessWidget {
                           },
                           type: 'Item Discount',
                           iconData: Icons.discount_outlined,
-                          inputType: TextInputType.name,
+                          inputType: TextInputType.number,
                           onChanged: (val) {
                             controller.items_discount =
                                 TextEditingController(text: val);
@@ -139,7 +140,7 @@ class AddItemPage extends StatelessWidget {
                           },
                           type: 'Item Price',
                           iconData: Icons.price_change_outlined,
-                          inputType: TextInputType.name,
+                          inputType: TextInputType.number,
                           onChanged: (val) {
                             controller.items_price =
                                 TextEditingController(text: val);
