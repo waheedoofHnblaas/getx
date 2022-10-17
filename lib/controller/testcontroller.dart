@@ -1,4 +1,3 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:get/get.dart';
 import 'package:getx/core/class/statusrequest.dart';
 import 'package:getx/core/function/handlingdata.dart';
